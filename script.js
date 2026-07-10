@@ -1,176 +1,143 @@
-/* ------------------------------------------------------------------
-   KINGNOTHIN — Landing page interactions
-   ------------------------------------------------------------------ */
+const spotlight = document.querySelector("[data-spotlight]");
+const signalPlate = document.querySelector("[data-signal-plate]");
 
-document.addEventListener('DOMContentLoaded', () => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (spotlight) {
+  const setSpotlight = (event) => {
+    const rect = spotlight.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    const radius = Math.sqrt((rect.width * rect.height * 0.1) / Math.PI);
+    const constrainedRadius = Math.max(130, Math.min(radius, 330));
 
-    // ------------------------------------------------------------------
-    // Current year in footer
-    // ------------------------------------------------------------------
+    spotlight.classList.add("is-lit");
+    spotlight.style.setProperty("--spot-x", `${x}px`);
+    spotlight.style.setProperty("--spot-y", `${y}px`);
+    spotlight.style.setProperty("--spot-radius", `${constrainedRadius}px`);
+  };
 
-    const yearEl = document.getElementById('year');
-    if (yearEl) {
-        yearEl.textContent = new Date().getFullYear().toString();
+  spotlight.addEventListener("pointerenter", (event) => {
+    setSpotlight(event);
+  });
+
+  spotlight.addEventListener("pointermove", setSpotlight);
+
+  spotlight.addEventListener("pointerleave", () => {
+    spotlight.classList.remove("is-lit");
+    spotlight.style.setProperty("--spot-radius", "0px");
+  });
+}
+
+if (signalPlate) {
+  const status = signalPlate.querySelector("[data-signal-status]");
+  const output = signalPlate.querySelector("[data-signal-output]");
+  const encryptedStatus = "KN://CROWNLESS_SIGNAL [ENCRYPTED]";
+  const unlockedStatus = "PUBLIC SIGNAL UNLOCKED";
+  const encryptedText = "54 48 45 20 52 45 56 4F 4C 55 54 49 4F 4E 20 48 41 53 20 4E 4F 20 54 48 52 4F 4E 45";
+  const finalText = "THE REVOLUTION HAS NO THRONE";
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  let unlocked = false;
+
+  const fitSignalTagline = () => {
+    if (!signalPlate.classList.contains("is-unlocked")) {
+      signalPlate.style.setProperty("--signal-tagline-scale", "1");
+      return;
     }
 
-    // ------------------------------------------------------------------
-    // Hero constellation canvas
-    // ------------------------------------------------------------------
+    signalPlate.style.setProperty("--signal-tagline-scale", "1");
 
-    const canvas = document.getElementById('constellation');
-    if (!canvas || prefersReducedMotion) return;
+    const fit = (attempt = 0) => {
+      const availableWidth = output.clientWidth;
+      const renderedWidth = output.scrollWidth;
 
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+      if (availableWidth > 0 && renderedWidth > availableWidth) {
+        const currentScale = Number(getComputedStyle(signalPlate).getPropertyValue("--signal-tagline-scale")) || 1;
+        const scale = Math.max(0.22, currentScale * (availableWidth / renderedWidth) * 0.97);
+        signalPlate.style.setProperty("--signal-tagline-scale", scale.toFixed(3));
+      }
 
-    let width = 0;
-    let height = 0;
-    let stars = [];
-    let mouse = { x: null, y: null };
-    let animationId = null;
-    let isVisible = true;
+      if (attempt < 6 && output.scrollWidth > output.clientWidth) {
+        window.requestAnimationFrame(() => fit(attempt + 1));
+      }
+    };
 
-    const STAR_COUNT = Math.min(80, Math.floor(window.innerWidth / 18));
-    const CONNECTION_DISTANCE = 120;
-    const MOUSE_CONNECTION_DISTANCE = 140;
-    const STAR_RADIUS = { min: 0.6, max: 1.6 };
+    window.requestAnimationFrame(() => fit());
+  };
 
-    function resize() {
-        const hero = canvas.parentElement;
-        if (!hero) return;
+  const setEncryptedState = () => {
+    signalPlate.classList.add("is-armed");
+    signalPlate.classList.remove("is-unlocked", "is-revealing");
+    signalPlate.style.setProperty("--signal-tagline-scale", "1");
+    status.textContent = encryptedStatus;
+    output.textContent = encryptedText;
+  };
 
-        const dpr = Math.min(window.devicePixelRatio || 1, 2);
-        width = hero.clientWidth;
-        height = hero.clientHeight;
+  const setFinalState = () => {
+    status.textContent = unlockedStatus;
+    output.innerHTML = 'THE REVOLUTION HAS NO <span class="signal-plate__throne">THRONE</span>';
+    signalPlate.classList.remove("is-armed", "is-revealing");
+    signalPlate.classList.add("is-unlocked");
+    fitSignalTagline();
 
-        canvas.width = width * dpr;
-        canvas.height = height * dpr;
-        canvas.style.width = `${width}px`;
-        canvas.style.height = `${height}px`;
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(fitSignalTagline);
+    }
+  };
 
-        ctx.scale(dpr, dpr);
-        buildStars();
+  const revealSignal = () => {
+    if (unlocked) {
+      return;
     }
 
-    function buildStars() {
-        stars = [];
-        for (let i = 0; i < STAR_COUNT; i++) {
-            stars.push({
-                x: Math.random() * width,
-                y: Math.random() * height,
-                radius: Math.random() * (STAR_RADIUS.max - STAR_RADIUS.min) + STAR_RADIUS.min,
-                vx: (Math.random() - 0.5) * 0.25,
-                vy: (Math.random() - 0.5) * 0.25,
-                opacity: Math.random() * 0.4 + 0.3
-            });
-        }
+    unlocked = true;
+
+    if (prefersReducedMotion) {
+      setFinalState();
+      return;
     }
 
-    function draw() {
-        if (!isVisible) return;
+    signalPlate.classList.add("is-revealing");
+    status.textContent = unlockedStatus;
 
-        ctx.clearRect(0, 0, width, height);
+    const totalFrames = finalText.length;
+    const interval = 56;
+    let frame = 0;
 
-        // Update and draw stars
-        stars.forEach((star) => {
-            star.x += star.vx;
-            star.y += star.vy;
+    const decrypt = window.setInterval(() => {
+      frame += 1;
+      const revealed = finalText.slice(0, frame);
+      const remaining = encryptedText.slice(frame * 3);
+      output.textContent = `${revealed}${remaining ? " " + remaining : ""}`;
 
-            if (star.x < 0 || star.x > width) star.vx *= -1;
-            if (star.y < 0 || star.y > height) star.vy *= -1;
+      if (frame >= totalFrames) {
+        window.clearInterval(decrypt);
+        setFinalState();
+      }
+    }, interval);
+  };
 
-            ctx.beginPath();
-            ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(245, 240, 232, ${star.opacity})`;
-            ctx.fill();
-        });
+  setEncryptedState();
 
-        // Draw connections between nearby stars
-        ctx.lineWidth = 0.5;
-        for (let i = 0; i < stars.length; i++) {
-            for (let j = i + 1; j < stars.length; j++) {
-                const dx = stars[i].x - stars[j].x;
-                const dy = stars[i].y - stars[j].y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-
-                if (dist < CONNECTION_DISTANCE) {
-                    const alpha = (1 - dist / CONNECTION_DISTANCE) * 0.18;
-                    ctx.beginPath();
-                    ctx.moveTo(stars[i].x, stars[i].y);
-                    ctx.lineTo(stars[j].x, stars[j].y);
-                    ctx.strokeStyle = `rgba(201, 168, 76, ${alpha})`;
-                    ctx.stroke();
-                }
-            }
-
-            // Connect to mouse
-            if (mouse.x !== null && mouse.y !== null) {
-                const dx = stars[i].x - mouse.x;
-                const dy = stars[i].y - mouse.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-
-                if (dist < MOUSE_CONNECTION_DISTANCE) {
-                    const alpha = (1 - dist / MOUSE_CONNECTION_DISTANCE) * 0.22;
-                    ctx.beginPath();
-                    ctx.moveTo(stars[i].x, stars[i].y);
-                    ctx.lineTo(mouse.x, mouse.y);
-                    ctx.strokeStyle = `rgba(201, 168, 76, ${alpha})`;
-                    ctx.stroke();
-                }
-            }
-        }
-
-        animationId = requestAnimationFrame(draw);
-    }
-
-    function handleMouseMove(e) {
-        const rect = canvas.getBoundingClientRect();
-        mouse.x = e.clientX - rect.left;
-        mouse.y = e.clientY - rect.top;
-    }
-
-    function handleMouseLeave() {
-        mouse.x = null;
-        mouse.y = null;
-    }
-
-    function handleTouchMove(e) {
-        const touch = e.touches[0];
-        const rect = canvas.getBoundingClientRect();
-        mouse.x = touch.clientX - rect.left;
-        mouse.y = touch.clientY - rect.top;
-    }
-
-    function handleTouchEnd() {
-        mouse.x = null;
-        mouse.y = null;
-    }
-
-    // Pause when canvas is not visible to save resources
-    const visibilityObserver = new IntersectionObserver((entries) => {
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
         entries.forEach((entry) => {
-            isVisible = entry.isIntersecting;
-            if (isVisible && !animationId) {
-                draw();
-            }
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.68) {
+            revealSignal();
+            observer.unobserve(signalPlate);
+          }
         });
-    }, { threshold: 0 });
+      },
+      {
+        root: null,
+        threshold: [0.68, 0.82, 1],
+      }
+    );
 
-    canvas.addEventListener('mousemove', handleMouseMove, { passive: true });
-    canvas.addEventListener('mouseleave', handleMouseLeave, { passive: true });
-    canvas.addEventListener('touchmove', handleTouchMove, { passive: true });
-    canvas.addEventListener('touchend', handleTouchEnd, { passive: true });
-    canvas.addEventListener('touchcancel', handleTouchEnd, { passive: true });
+    observer.observe(signalPlate);
+  } else {
+    setFinalState();
+  }
 
-    window.addEventListener('resize', () => {
-        cancelAnimationFrame(animationId);
-        animationId = null;
-        resize();
-        if (isVisible) draw();
-    }, { passive: true });
-
-    resize();
-    visibilityObserver.observe(canvas);
-    draw();
-});
+  window.addEventListener("resize", fitSignalTagline);
+}
