@@ -172,7 +172,7 @@ if (extractionSection) {
   const refuseVerdict = () => {
     extractionSection.classList.add("is-refused");
     refuseButton.setAttribute("aria-expanded", "true");
-    refuseButton.textContent = "VERDICT REFUSED";
+    refuseButton.textContent = "VERSION REFUSED";
 
     classifications.forEach((classification) => {
       classification.textContent = "NOT IDENTITY";
