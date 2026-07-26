@@ -33,8 +33,6 @@
           data-signal-plate
           aria-label="THE REVOLUTION HAS NO THRONE"
         >
-          <div class="signal-plate__edge" aria-hidden="true"></div>
-          <div class="signal-plate__scan" aria-hidden="true"></div>
           <p class="signal-plate__status" data-signal-status>PUBLIC SIGNAL UNLOCKED</p>
           <h2 class="signal-plate__tagline" id="signal-title" data-signal-output aria-hidden="true">
             THE REVOLUTION HAS NO THRONE
@@ -47,105 +45,394 @@
         <div class="extraction-section__inner">
           <div class="extraction-transition" aria-hidden="true"></div>
 
-          <header class="extraction-header">
-            <p class="extraction-label extraction-reveal">THE EXTRACTION ECONOMY</p>
-            <h2 class="extraction-heading extraction-reveal" id="extraction-title">
-              THE EXTRACTION ECONOMY IS ALREADY AT WORK.
+          <header class="extraction-intro">
+            <h2 class="extraction-title extraction-reveal" id="extraction-title">
+              THE EXTRACTION ECONOMY
             </h2>
+            <p class="extraction-triad extraction-reveal" aria-label="Relentless. Invasive. Predatory.">
+              <span>RELENTLESS.</span>
+              <span>INVASIVE.</span>
+              <span>PREDATORY.</span>
+            </p>
+
+            <div class="extraction-opening extraction-reveal">
+              <p>The Extraction Economy is always at work.</p>
+              <p>
+                It gathers the actions of an everyday life; what you search, what you click,
+                where you go, what you spend money on, who you converse with, what attracts
+                your attention, and what holds your attention.
+              </p>
+              <p>
+                Those data points are then assembled into something far more valuable than a
+                record of what you have already done. They become a predictive model of what,
+                statistically, you will do next.
+              </p>
+              <p class="extraction-opening__exchange">The exchange is presented as convenience.</p>
+              <p class="extraction-opening__value">The value travels predominantly in one direction.</p>
+            </div>
           </header>
 
-          <div class="extraction-copy" aria-label="How behaviour becomes classification">
-            <p class="extraction-reveal">
-              It watches what you search, where you hesitate, what you fear, what you desire,
-              and what finally makes you click.
-            </p>
-            <p class="extraction-reveal">
-              It records the hour you reach for the phone. The pause before the decision.
-              The page you return to when no one is watching.
-            </p>
-            <p class="extraction-reveal">Then it builds a version of you.</p>
-            <p class="extraction-reveal">
-              A passing curiosity becomes a permanent interest. A vulnerable moment becomes
-              a market category. A single search becomes evidence.
-            </p>
-            <p class="extraction-reveal">
-              Your behaviour is gathered, measured, and used to construct the boundaries
-              of your future.
-            </p>
-            <p class="extraction-reveal">The system does not ask who you are becoming.</p>
-            <p class="extraction-reveal extraction-copy__strike">It calculates who you have been.</p>
-            <p class="extraction-reveal">
-              Then it feeds that version back to you, again and again, until prediction
-              resembles personality and repetition begins to feel like choice.
-            </p>
-          </div>
-
-          <div class="extraction-simulation extraction-reveal" aria-label="Illustrative profile-building simulation">
-            <div class="extraction-simulation__header">
-              <p>SIMULATION // HOW A PROFILE IS BUILT</p>
-              <p>Illustrative example. No personal activity is being read or collected.</p>
-            </div>
-
-            <div class="extraction-comparison" aria-label="Behaviour compared with machine judgment">
-              <div class="extraction-column-label extraction-column-label--human">WHAT YOU DID</div>
-              <div class="extraction-column-label extraction-column-label--machine">WHAT THEY DECIDED</div>
-
-              <article class="extraction-pair extraction-reveal">
-                <p class="extraction-pair__action">Searched at 2:14 AM</p>
-                <p class="extraction-pair__judgment">Emotionally vulnerable</p>
-              </article>
-              <article class="extraction-pair extraction-reveal">
-                <p class="extraction-pair__action">Paused before purchasing</p>
-                <p class="extraction-pair__judgment">Low confidence buyer</p>
-              </article>
-              <article class="extraction-pair extraction-reveal">
-                <p class="extraction-pair__action">Opened a budget calculator</p>
-                <p class="extraction-pair__judgment">Financial anxiety detected</p>
-              </article>
-              <article class="extraction-pair extraction-reveal">
-                <p class="extraction-pair__action">Returned to the same article</p>
-                <p class="extraction-pair__judgment">Permanent interest assigned</p>
-              </article>
-              <article class="extraction-pair extraction-reveal">
-                <p class="extraction-pair__action">Clicked once</p>
-                <p class="extraction-pair__judgment">Retargeting audience created</p>
-              </article>
-            </div>
-          </div>
-
-          <div class="extraction-profile extraction-reveal" id="extraction-profile" aria-live="polite">
-            <p class="extraction-profile__kicker">CONSTRUCTED PROFILE</p>
-            <ul class="extraction-profile__list">
-              <li><span>inferred state:</span> <strong data-extraction-classification>financially anxious</strong></li>
-              <li><span>purchasing confidence:</span> <strong data-extraction-classification>low</strong></li>
-              <li><span>predicted interest:</span> <strong data-extraction-classification>debt relief</strong></li>
-              <li><span>retargeting window:</span> <strong data-extraction-classification>indefinite</strong></li>
-              <li><span>category status:</span> <strong data-extraction-classification>persistent</strong></li>
-            </ul>
-            <p class="extraction-profile__result" data-extraction-result hidden>YOU ARE NOT THEIR CONCLUSION.</p>
-          </div>
-
-          <p class="extraction-kingdom extraction-reveal">
-            THEIR KINGDOMS ARE BUILT FROM THE PIECES THEY REMOVE FROM YOU.
-          </p>
-
-          <p class="extraction-verdict extraction-reveal">
-            YOU ARE MORE THAN THE RECORD BUILT FROM YOUR CLICKS.
-          </p>
-
-          <button
-            class="extraction-action extraction-reveal"
-            type="button"
-            aria-controls="extraction-profile"
-            aria-expanded="false"
-            data-extraction-refuse
+          <!-- Reserved for the next Extraction Economy redesign pass. -->
+          <section
+            class="extraction-pathway extraction-reveal"
+            aria-labelledby="extraction-pathway-title"
+            hidden
           >
-            REFUSE THEIR VERSION
-          </button>
+            <header class="extraction-pathway__intro">
+              <p class="extraction-pathway__code">AN ORDINARY ACTION / A LARGER SYSTEM</p>
+              <h3 id="extraction-pathway-title">FOLLOW ONE POSSIBLE JOURNEY.</h3>
+              <p>
+                Choose an ordinary action. Nothing here reads or collects your activity.
+                Each journey is an illustrative account of where a signal could lead.
+              </p>
+            </header>
 
-          <p class="extraction-closing extraction-reveal">
-            KINGNOTHIN exists to help you reclaim your rule.
-          </p>
+            <div class="extraction-actions" data-action-selector>
+              <button class="extraction-action" type="button" data-scenario="search">
+                <span class="extraction-action__number" aria-hidden="true">01</span>
+                <span class="extraction-action__title">Search for information</span>
+                <span class="extraction-action__teaser">An answer begins a longer journey.</span>
+                <span class="extraction-action__prompt">Follow this signal</span>
+              </button>
+              <button class="extraction-action" type="button" data-scenario="product">
+                <span class="extraction-action__number" aria-hidden="true">02</span>
+                <span class="extraction-action__title">Pause over a product</span>
+                <span class="extraction-action__teaser">Hesitation is still a signal.</span>
+                <span class="extraction-action__prompt">Follow this signal</span>
+              </button>
+              <button class="extraction-action" type="button" data-scenario="location">
+                <span class="extraction-action__number" aria-hidden="true">03</span>
+                <span class="extraction-action__title">Carry your phone through the world</span>
+                <span class="extraction-action__teaser">Movement becomes a pattern.</span>
+                <span class="extraction-action__prompt">Follow this signal</span>
+              </button>
+              <button class="extraction-action" type="button" data-scenario="attention">
+                <span class="extraction-action__number" aria-hidden="true">04</span>
+                <span class="extraction-action__title">Scroll, watch and react</span>
+                <span class="extraction-action__teaser">Attention leaves a shape behind.</span>
+                <span class="extraction-action__prompt">Follow this signal</span>
+              </button>
+              <button class="extraction-action" type="button" data-scenario="connection">
+                <span class="extraction-action__number" aria-hidden="true">05</span>
+                <span class="extraction-action__title">Communicate with others</span>
+                <span class="extraction-action__teaser">Connection can become a map.</span>
+                <span class="extraction-action__prompt">Follow this signal</span>
+              </button>
+              <span class="extraction-actions__axis" aria-hidden="true"></span>
+            </div>
+
+            <div class="extraction-journey" data-journey hidden>
+              <header class="extraction-journey__header">
+                <button class="extraction-journey__return" type="button" data-return-actions>
+                  Return to the actions
+                </button>
+                <ol class="extraction-progress" aria-label="Journey progress" data-progress>
+                  <li data-progress-stage="1"><span>I</span><small>THE ACT</small></li>
+                  <li data-progress-stage="2"><span>II</span><small>THE INTERPRETATION</small></li>
+                  <li data-progress-stage="3"><span>III</span><small>THE PASSAGE</small></li>
+                  <li data-progress-stage="4"><span>IV</span><small>THE YIELD</small></li>
+                  <li data-progress-stage="5"><span>V</span><small>THE RETURN</small></li>
+                </ol>
+              </header>
+
+              <div class="extraction-route" aria-hidden="true" data-route-visual>
+                <svg viewBox="0 0 1000 120" preserveAspectRatio="none">
+                  <path class="extraction-route__base" d="M40 60 H960"></path>
+                  <path class="extraction-route__chosen" d="M40 60 H960"></path>
+                  <g data-route-nodes></g>
+                </svg>
+              </div>
+
+              <article class="extraction-stage" data-stage-panel aria-labelledby="extraction-stage-title">
+                <p class="extraction-stage__index" data-stage-index></p>
+                <p class="extraction-stage__support" data-stage-support></p>
+                <h4 id="extraction-stage-title" tabindex="-1" data-stage-title></h4>
+                <p class="extraction-stage__description" data-stage-description></p>
+                <div class="extraction-choices" data-stage-choices></div>
+                <div class="extraction-return-record" data-return-record hidden></div>
+              </article>
+
+              <nav class="extraction-journey__controls" aria-label="Journey controls">
+                <button type="button" class="extraction-control extraction-control--quiet" data-journey-back>Back</button>
+                <button type="button" class="extraction-control" data-journey-next disabled>Continue</button>
+              </nav>
+
+              <section class="extraction-pullback" data-pullback hidden aria-labelledby="extraction-pullback-title">
+                <header>
+                  <p>THE LARGER SYSTEM</p>
+                  <h4 id="extraction-pullback-title" tabindex="-1">You followed one possible journey.</h4>
+                  <p>The system does not require there to be only one.</p>
+                </header>
+                <div class="extraction-map" data-pullback-map></div>
+                <div class="extraction-pullback__summary" data-journey-summary></div>
+                <div class="extraction-pullback__controls">
+                  <button type="button" class="extraction-control extraction-control--quiet" data-trace-again>Trace another path</button>
+                  <button type="button" class="extraction-control" data-choose-another>Choose another action</button>
+                </div>
+              </section>
+            </div>
+
+            <p class="sr-only" aria-live="polite" aria-atomic="true" data-journey-live></p>
+          </section>
+
+          <section class="extraction-ledger extraction-static-fallback extraction-reveal" aria-labelledby="extraction-ledger-title" hidden>
+            <header class="extraction-ledger__intro">
+              <p class="extraction-ledger__code">THE VALUE TRANSFER / AN ILLUSTRATIVE RECORD</p>
+              <h3 id="extraction-ledger-title">FOLLOW THE SIGNAL.</h3>
+              <p>
+                Each record traces one ordinary action through interpretation, circulation,
+                commercial return and the value that reaches you.
+              </p>
+            </header>
+
+            <div
+              class="extraction-ledger__matrix"
+              role="table"
+              aria-label="How ordinary actions become commercial value"
+              aria-describedby="extraction-ledger-note"
+            >
+              <div class="extraction-ledger__head" role="row">
+                <div role="columnheader">WHAT YOU DO</div>
+                <div role="columnheader">WHAT THEY DECIDE</div>
+                <div role="columnheader">WHERE YOUR DATA COULD GO</div>
+                <div role="columnheader">HOW THEY PROFIT</div>
+                <div role="columnheader">HOW YOU PROFIT</div>
+              </div>
+
+              <article class="extraction-ledger__row" role="row" tabindex="0" aria-label="Record 01: Search for information">
+                <span class="extraction-ledger__signal" aria-hidden="true"></span>
+                <div class="extraction-ledger__cell" role="cell">
+                  <span class="extraction-ledger__mobile-label" aria-hidden="true">WHAT YOU DO</span>
+                  <p>Search for information</p>
+                </div>
+                <div class="extraction-ledger__cell" role="cell">
+                  <span class="extraction-ledger__mobile-label" aria-hidden="true">WHAT THEY DECIDE</span>
+                  <p>What concerns you, interests you or makes you vulnerable</p>
+                </div>
+                <div class="extraction-ledger__cell" role="cell">
+                  <span class="extraction-ledger__mobile-label" aria-hidden="true">WHERE YOUR DATA COULD GO</span>
+                  <p>Platforms, analytics providers, advertising networks and data partners</p>
+                </div>
+                <div class="extraction-ledger__cell extraction-ledger__cell--their-profit" role="cell">
+                  <span class="extraction-ledger__mobile-label" aria-hidden="true">HOW THEY PROFIT</span>
+                  <p>Search advertising, audience profiling and predictive targeting</p>
+                </div>
+                <div class="extraction-ledger__cell extraction-ledger__cell--your-profit" role="cell">
+                  <span class="extraction-ledger__mobile-label" aria-hidden="true">HOW YOU PROFIT</span>
+                  <p>You receive an answer. You receive no share of the profile’s continuing value.</p>
+                </div>
+              </article>
+
+              <article class="extraction-ledger__row" role="row" tabindex="0" aria-label="Record 02: Pause over a product">
+                <span class="extraction-ledger__signal" aria-hidden="true"></span>
+                <div class="extraction-ledger__cell" role="cell">
+                  <span class="extraction-ledger__mobile-label" aria-hidden="true">WHAT YOU DO</span>
+                  <p>Pause over a product</p>
+                </div>
+                <div class="extraction-ledger__cell" role="cell">
+                  <span class="extraction-ledger__mobile-label" aria-hidden="true">WHAT THEY DECIDE</span>
+                  <p>What you desire, what you can afford and how close you may be to buying</p>
+                </div>
+                <div class="extraction-ledger__cell" role="cell">
+                  <span class="extraction-ledger__mobile-label" aria-hidden="true">WHERE YOUR DATA COULD GO</span>
+                  <p>Retailers, recommendation systems, advertisers and data brokers</p>
+                </div>
+                <div class="extraction-ledger__cell extraction-ledger__cell--their-profit" role="cell">
+                  <span class="extraction-ledger__mobile-label" aria-hidden="true">HOW THEY PROFIT</span>
+                  <p>Retargeting, product placement, conversion prediction and pricing optimization</p>
+                </div>
+                <div class="extraction-ledger__cell extraction-ledger__cell--your-profit" role="cell">
+                  <span class="extraction-ledger__mobile-label" aria-hidden="true">HOW YOU PROFIT</span>
+                  <p>You may receive convenience or a recommendation. You receive no payment for the commercial signal you created.</p>
+                </div>
+              </article>
+
+              <article class="extraction-ledger__row" role="row" tabindex="0" aria-label="Record 03: Carry your phone through the world">
+                <span class="extraction-ledger__signal" aria-hidden="true"></span>
+                <div class="extraction-ledger__cell" role="cell">
+                  <span class="extraction-ledger__mobile-label" aria-hidden="true">WHAT YOU DO</span>
+                  <p>Carry your phone through the world</p>
+                </div>
+                <div class="extraction-ledger__cell" role="cell">
+                  <span class="extraction-ledger__mobile-label" aria-hidden="true">WHAT THEY DECIDE</span>
+                  <p>Where you live, work, shop, gather and return to regularly</p>
+                </div>
+                <div class="extraction-ledger__cell" role="cell">
+                  <span class="extraction-ledger__mobile-label" aria-hidden="true">WHERE YOUR DATA COULD GO</span>
+                  <p>Applications, location services, analytics firms and commercial partners</p>
+                </div>
+                <div class="extraction-ledger__cell extraction-ledger__cell--their-profit" role="cell">
+                  <span class="extraction-ledger__mobile-label" aria-hidden="true">HOW THEY PROFIT</span>
+                  <p>Location intelligence, audience segmentation and behavioural forecasting</p>
+                </div>
+                <div class="extraction-ledger__cell extraction-ledger__cell--your-profit" role="cell">
+                  <span class="extraction-ledger__mobile-label" aria-hidden="true">HOW YOU PROFIT</span>
+                  <p>You receive navigation and local services. You rarely control the secondary uses of the resulting data.</p>
+                </div>
+              </article>
+
+              <article class="extraction-ledger__row" role="row" tabindex="0" aria-label="Record 04: Scroll, watch and react">
+                <span class="extraction-ledger__signal" aria-hidden="true"></span>
+                <div class="extraction-ledger__cell" role="cell">
+                  <span class="extraction-ledger__mobile-label" aria-hidden="true">WHAT YOU DO</span>
+                  <p>Scroll, watch and react</p>
+                </div>
+                <div class="extraction-ledger__cell" role="cell">
+                  <span class="extraction-ledger__mobile-label" aria-hidden="true">WHAT THEY DECIDE</span>
+                  <p>What holds your attention, alters your mood or keeps you engaged</p>
+                </div>
+                <div class="extraction-ledger__cell" role="cell">
+                  <span class="extraction-ledger__mobile-label" aria-hidden="true">WHERE YOUR DATA COULD GO</span>
+                  <p>Platforms, recommendation engines, advertisers and measurement systems</p>
+                </div>
+                <div class="extraction-ledger__cell extraction-ledger__cell--their-profit" role="cell">
+                  <span class="extraction-ledger__mobile-label" aria-hidden="true">HOW THEY PROFIT</span>
+                  <p>Advertising revenue, longer engagement and increasingly precise predictions</p>
+                </div>
+                <div class="extraction-ledger__cell extraction-ledger__cell--your-profit" role="cell">
+                  <span class="extraction-ledger__mobile-label" aria-hidden="true">HOW YOU PROFIT</span>
+                  <p>You receive content selected for you. The platform receives a better model of you.</p>
+                </div>
+              </article>
+
+              <article class="extraction-ledger__row" role="row" tabindex="0" aria-label="Record 05: Communicate with others">
+                <span class="extraction-ledger__signal" aria-hidden="true"></span>
+                <div class="extraction-ledger__cell" role="cell">
+                  <span class="extraction-ledger__mobile-label" aria-hidden="true">WHAT YOU DO</span>
+                  <p>Communicate with others</p>
+                </div>
+                <div class="extraction-ledger__cell" role="cell">
+                  <span class="extraction-ledger__mobile-label" aria-hidden="true">WHAT THEY DECIDE</span>
+                  <p>Who influences you, who matters to you and how your relationships are structured</p>
+                </div>
+                <div class="extraction-ledger__cell" role="cell">
+                  <span class="extraction-ledger__mobile-label" aria-hidden="true">WHERE YOUR DATA COULD GO</span>
+                  <p>Communication platforms, service providers, analytics systems and affiliated partners</p>
+                </div>
+                <div class="extraction-ledger__cell extraction-ledger__cell--their-profit" role="cell">
+                  <span class="extraction-ledger__mobile-label" aria-hidden="true">HOW THEY PROFIT</span>
+                  <p>Network analysis, product development, targeting and retention</p>
+                </div>
+                <div class="extraction-ledger__cell extraction-ledger__cell--your-profit" role="cell">
+                  <span class="extraction-ledger__mobile-label" aria-hidden="true">HOW YOU PROFIT</span>
+                  <p>You receive connection. You do not share in the value generated by mapping the network around you.</p>
+                </div>
+              </article>
+            </div>
+
+            <p class="extraction-ledger__note" id="extraction-ledger-note">
+              Illustrative comparison. No personal activity is being read or collected.
+              Focus or hover a record to trace the value transfer.
+            </p>
+          </section>
+
+          <div class="extraction-thesis extraction-reveal">
+            <p>
+              The Extraction Economy is not merely built from your data. It is built from
+              <span>the distance</span> between the value you create and the value you are permitted to keep.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="privacy-space"
+        id="privacy-foundation"
+        aria-labelledby="privacy-title"
+        data-privacy-space
+      >
+        <div class="privacy-space__threshold" aria-hidden="true">
+          <span></span>
+        </div>
+
+        <div class="privacy-space__scroll-stage" data-privacy-scroll-stage>
+          <div class="privacy-space__frame">
+            <div class="privacy-space__architecture" aria-hidden="true">
+              <span class="privacy-space__axis"></span>
+              <span class="privacy-space__horizon"></span>
+            </div>
+
+            <div class="privacy-space__pressure" aria-hidden="true">
+              <span class="privacy-pressure privacy-pressure--left" data-pressure-side="left">BASED ON YOUR ACTIVITY</span>
+              <span class="privacy-pressure privacy-pressure--right" data-pressure-side="right">RECOMMENDED FOR YOU</span>
+              <span class="privacy-pressure privacy-pressure--left" data-pressure-side="left">PEOPLE LIKE YOU CHOSE</span>
+              <span class="privacy-pressure privacy-pressure--right" data-pressure-side="right">TRENDING IN YOUR AREA</span>
+              <span class="privacy-pressure privacy-pressure--left" data-pressure-side="left">YOU MAY ALSO LIKE</span>
+              <span class="privacy-pressure privacy-pressure--right" data-pressure-side="right">SELECTED FOR YOU</span>
+              <span class="privacy-pressure privacy-pressure--left" data-pressure-side="left">BECAUSE YOU WATCHED</span>
+              <span class="privacy-pressure privacy-pressure--right" data-pressure-side="right">CONTINUE WHERE YOU LEFT OFF</span>
+              <span class="privacy-pressure privacy-pressure--left privacy-pressure--warning" data-pressure-side="left">PREDICTED FOR YOU</span>
+              <span class="privacy-pressure privacy-pressure--right" data-pressure-side="right">POPULAR WITH PEOPLE LIKE YOU</span>
+            </div>
+
+            <div class="privacy-space__center">
+              <p class="privacy-space__pause" data-privacy-pause>PAUSE.</p>
+              <div class="privacy-space__statement" data-privacy-statement>
+                <p class="privacy-space__label">PRIVACY / THE FOUNDATION</p>
+                <h2 id="privacy-title">PRIVACY IS WHERE CLEAR THOUGHT BEGINS.</h2>
+                <p>
+                  Privacy creates the space between what reaches you and what becomes part of you.
+                </p>
+              </div>
+            </div>
+
+            <p class="sr-only">
+              Recommendation language moves away from the center, creating room for the statement:
+              Privacy is where clear thought begins.
+            </p>
+          </div>
+        </div>
+
+        <div class="privacy-space__meaning">
+          <div class="privacy-space__meaning-inner">
+            <p class="privacy-space__lead privacy-reveal">
+              Inside that space, you can pause, question what you are shown, choose where your
+              attention goes, and decide which ideas deserve a place in your mind.
+            </p>
+
+            <div class="privacy-path" aria-label="How privacy supports independent thought">
+              <span class="privacy-path__line" aria-hidden="true"></span>
+
+              <article class="privacy-path__step privacy-reveal">
+                <p class="privacy-path__word">SPACE</p>
+                <p>Room to pause.</p>
+              </article>
+
+              <article class="privacy-path__step privacy-reveal">
+                <p class="privacy-path__word">ATTENTION</p>
+                <p>The power to choose what deserves your focus.</p>
+              </article>
+
+              <article class="privacy-path__step privacy-reveal">
+                <p class="privacy-path__word">CLARITY</p>
+                <p>The ability to see what is shaping you.</p>
+              </article>
+
+              <article class="privacy-path__step privacy-reveal">
+                <p class="privacy-path__word">CHOICE</p>
+                <p>The freedom to reach your own conclusion.</p>
+              </article>
+
+              <article class="privacy-path__step privacy-path__step--arrival privacy-reveal">
+                <p class="privacy-path__word">INDEPENDENT THOUGHT</p>
+                <p>Your mind, given room to lead.</p>
+              </article>
+            </div>
+
+            <div class="privacy-space__closing privacy-reveal">
+              <p>A sovereign mind needs room to form its own conclusions.</p>
+              <p>
+                KINGNOTHIN begins with privacy because every clear, deliberate, independent
+                thought needs somewhere to take shape.
+              </p>
+            </div>
+
+            <div class="privacy-space__foundation privacy-reveal" aria-label="Privacy is the foundation">
+              <span aria-hidden="true"></span>
+              <p>PRIVACY IS THE FOUNDATION.</p>
+              <span aria-hidden="true"></span>
+            </div>
+          </div>
         </div>
       </section>
 
