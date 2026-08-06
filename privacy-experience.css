@@ -170,6 +170,51 @@
   content: attr(data-step);
 }
 
+.privacy-experience__word-sequence {
+  display: inline-flex;
+  max-width: 100%;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: .12em .22em;
+  color: var(--supernova);
+  font-family: "Prototype";
+}
+
+.privacy-experience__word {
+  display: inline-block;
+  color: var(--supernova);
+  font-family: "Prototype";
+}
+
+.privacy-experience__word--trending {
+  font-weight: 700;
+  letter-spacing: .035em;
+}
+
+.privacy-experience__word--in {
+  font-weight: 400;
+  letter-spacing: .18em;
+}
+
+.privacy-experience__word--your {
+  font-weight: 700;
+  letter-spacing: .075em;
+}
+
+.privacy-experience__word--area {
+  font-weight: 400;
+  letter-spacing: .07em;
+}
+
+@supports (-webkit-text-stroke: 1px currentColor) {
+  .privacy-experience__word--in,
+  .privacy-experience__word--area {
+    color: transparent;
+    -webkit-text-stroke: clamp(.7px, .075vw, 1.1px) var(--supernova);
+  }
+}
+
 .privacy-experience.is-enhanced .privacy-experience__journey {
   height: 980svh;
   padding: 0;
@@ -428,6 +473,33 @@
     translate3d(var(--privacy-phrase-x), var(--privacy-phrase-y), 0)
     scale(var(--privacy-phrase-scale));
   filter: blur(0);
+}
+
+.privacy-experience.is-enhanced .privacy-experience__word {
+  opacity: 0;
+  transform: translateY(.2em) scale(.985);
+  filter: blur(4px);
+  transition:
+    opacity 260ms ease,
+    transform 320ms var(--ease-signal),
+    filter 260ms ease;
+}
+
+.privacy-experience.is-enhanced .privacy-experience__word.is-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+.privacy-experience__phrase-art {
+  display: block;
+  width: min(88vw, 760px);
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  filter:
+    drop-shadow(0 2px 18px rgba(10, 10, 11, .9))
+    drop-shadow(0 0 1px rgba(245, 240, 232, .24));
 }
 
 .privacy-experience__thumbnails {
@@ -824,6 +896,13 @@
   display: block;
 }
 
+.privacy-experience.is-reduced-motion .privacy-experience__word {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition: none;
+}
+
 @media (max-width: 760px) {
   .privacy-experience__introduction,
   .privacy-experience__calm {
@@ -855,6 +934,10 @@
   .privacy-experience.is-enhanced .privacy-experience__phrase {
     width: 94vw;
     font-size: clamp(2.25rem, 11.5vw, 3.35rem);
+  }
+
+  .privacy-experience__phrase-art {
+    width: 94vw;
   }
 
   .privacy-experience[data-stage="7"] .privacy-experience__phrase,

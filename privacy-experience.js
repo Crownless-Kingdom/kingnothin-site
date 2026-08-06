@@ -15,6 +15,10 @@
   const playButton = experience.querySelector("[data-privacy-audio-play]");
   const motionButton = experience.querySelector("[data-privacy-motion-toggle]");
   const audioStatus = experience.querySelector("[data-privacy-audio-status]");
+  const stageOnePhrase = phrases[0];
+  const stageOneWords = [
+    ...stageOnePhrase.querySelectorAll("[data-privacy-word]")
+  ];
 
   const requiredElements = [
     journey,
@@ -29,7 +33,11 @@
     audioStatus
   ];
 
-  if (phrases.length !== 9 || requiredElements.some((element) => !element)) {
+  if (
+    phrases.length !== 9
+    || stageOneWords.length !== 4
+    || requiredElements.some((element) => !element)
+  ) {
     return;
   }
 
@@ -75,6 +83,7 @@
   let manualReduce = false;
   let lastProgress = 0;
   let experienceWasInView = false;
+  let activeWordStep = -1;
 
   function clamp(value, min = 0, max = 1) {
     return Math.min(max, Math.max(min, value));
@@ -88,6 +97,17 @@
     return manualReduce || systemReduce.matches;
   }
 
+  function setStageOneWordStep(step) {
+    const safeStep = Math.round(clamp(step, 0, stageOneWords.length));
+    if (safeStep === activeWordStep) return;
+    activeWordStep = safeStep;
+    stageOnePhrase.dataset.wordStep = String(safeStep);
+
+    stageOneWords.forEach((word, wordIndex) => {
+      word.classList.toggle("is-revealed", wordIndex < safeStep);
+    });
+  }
+
   function setActivePhrase(index) {
     if (index === activeIndex || effectiveReducedMotion()) return;
     activeIndex = index;
@@ -98,8 +118,10 @@
     });
 
     currentCount.textContent = String(index + 1).padStart(2, "0");
+    const phraseLabel =
+      phrases[index].dataset.privacyLabel || phrases[index].textContent.trim();
     livePhrase.textContent =
-      `${phrases[index].textContent}. Stage ${index + 1} of ${phrases.length}.`;
+      `${phraseLabel}. Stage ${index + 1} of ${phrases.length}.`;
   }
 
   function triggeredLayers() {
@@ -268,6 +290,7 @@
 
     if (effectiveReducedMotion()) {
       experience.style.setProperty("--privacy-progress", progress.toFixed(4));
+      setStageOneWordStep(stageOneWords.length);
 
       if (
         audioArmed
@@ -283,10 +306,18 @@
 
     const phraseWindow = .82;
     const phraseProgress = clamp(progress / phraseWindow);
+    const phrasePosition = phraseProgress * phrases.length;
     const index = Math.min(
       phrases.length - 1,
-      Math.floor(phraseProgress * phrases.length)
+      Math.floor(phrasePosition)
     );
+    const stageOneProgress = clamp(phrasePosition);
+    const stageOneWordStep = index === 0
+      ? Math.min(
+          stageOneWords.length,
+          Math.floor(stageOneProgress * stageOneWords.length) + 1
+        )
+      : stageOneWords.length;
     const pressure = clamp((index - 1) / 7);
     const release = clamp((progress - .86) / .11);
     const [x, y, scale] = offsets[index];
@@ -302,6 +333,7 @@
     experience.style.setProperty("--privacy-phrase-y", `${y}vh`);
     experience.style.setProperty("--privacy-phrase-scale", scale);
     experience.dataset.stage = String(index + 1);
+    setStageOneWordStep(stageOneWordStep);
     setActivePhrase(index);
 
     audioLayers.forEach((layer) => {

@@ -35,7 +35,133 @@ Silence, discussion, experimentation, or a request to preview an idea does not
 count as clearance. Approval must be explicit. Clearance for one proposal does
 not authorize another.
 
-## Active Chamber
+## Applied Chamber — KN-PRIVACY-STAGE-3-GOLD-OUTLINE-2026-08-03
+
+Proposal ID: `KN-PRIVACY-STAGE-3-GOLD-OUTLINE-2026-08-03`
+
+Title: Supernova Gold outline for Stage 3 phrase artwork
+
+Status: `APPLIED`
+
+Opened: 2026-08-03
+
+Purpose:
+
+Change only the edge outline of the transparent `Based on your activity`
+phrase artwork from pale/white to Supernova Gold `#C9A84C` while preserving
+the exact stacked letterforms, photographic interiors, and clear background.
+
+Files changed:
+
+- `index.html`
+- `assets/privacy-experience/based-on-your-activity-words-gold-outline.png`
+- `SITE_CHANGE_CLEARANCE.md`
+
+Final clearance:
+
+- Approved by: User
+- Approval date: 2026-08-06
+- Approved scope: Change only the Stage 3 artwork outline to Supernova Gold,
+  preserving the transparent background, photographic interiors, exact phrase,
+  semantic text, timing, position, background, controls, audio behavior, and
+  every unrelated surface.
+- Approval evidence: After reviewing the isolated desktop preview, the user
+  said, `ok i like that lets go live with that`.
+
+Implementation:
+
+- Applied date: 2026-08-06
+- Verification: The 658 x 400 RGBA asset is byte-identical to the approved
+  isolated review asset. Its corners are fully transparent and its interior
+  photographic texture remains visible. Desktop and 390 x 844 browser checks
+  confirmed Stage 3 remained `03 / 09`, semantic wording and audio behavior
+  were unchanged, horizontal overflow was zero, and the console was clean.
+- Publication: Authorized by the user's 2026-08-06 request to ensure the
+  approved privacy changes are pushed to the GitHub repository.
+
+## Applied Chamber — KN-PRIVACY-STAGE-3-TRANSPARENT-ART-2026-08-03
+
+Proposal ID: `KN-PRIVACY-STAGE-3-TRANSPARENT-ART-2026-08-03`
+
+Title: Transparent photographic lettering for `Based on your activity`
+
+Status: `APPLIED`
+
+Opened: 2026-08-03
+
+Purpose:
+
+Replace only the visible Stage 3 phrase treatment with the reviewed
+transparent photographic lettering while retaining the exact phrase as
+semantic HTML and in the live stage announcement.
+
+Files changed:
+
+- `index.html`
+- `privacy-experience.css`
+- `assets/privacy-experience/based-on-your-activity-words-gold-outline.png`
+- `SITE_CHANGE_CLEARANCE.md`
+
+Final clearance:
+
+- Approved by: User
+- Approval date: 2026-08-03
+- Approved scope: Replace only the visible Stage 3 `Based on your activity`
+  treatment with the reviewed transparent photographic lettering. Preserve
+  timing, background, nine-stage order, reduced-motion reading, audio behavior,
+  and every unrelated surface.
+- Approval evidence: After reviewing the isolated transparent Stage 3 preview,
+  the user explicitly said, `clear it`.
+
+Implementation:
+
+- Applied date: 2026-08-03
+- Verification: The local decorative image loaded at its natural 658 x 400
+  dimensions; the exact semantic phrase and `03 / 09` stage remained intact.
+  Desktop and 390 x 844 checks passed with zero overflow and a clean console.
+
+## Applied Chamber — KN-PRIVACY-TRENDING-WORD-REVEAL-2026-08-03
+
+Proposal ID: `KN-PRIVACY-TRENDING-WORD-REVEAL-2026-08-03`
+
+Title: Word-by-word Prototype reveal for `Trending in your area`
+
+Status: `APPLIED`
+
+Opened: 2026-08-03
+
+Purpose:
+
+Reveal `TRENDING`, `IN`, `YOUR`, and `AREA` one word at a time within the
+unchanged Stage 1 scroll slot. Use solid Supernova Gold for `TRENDING` and
+`YOUR`, and fine gold outlines for `IN` and `AREA`.
+
+Files changed:
+
+- `index.html`
+- `privacy-experience.css`
+- `privacy-experience.js`
+- `SITE_CHANGE_CLEARANCE.md`
+
+Final clearance:
+
+- Approved by: User
+- Approval date: 2026-08-03
+- Approved scope: Replace only the visible Stage 1 phrase with four internally
+  timed Prototype word cues inside the existing Stage 1 slot. Keep Stage 2 and
+  the overall nine-stage timing unchanged.
+- Approval evidence: After defining the word weights and timing, the user
+  explicitly said, `clear it`.
+
+Implementation:
+
+- Applied date: 2026-08-03
+- Verification: The four words enter at successive quarter-stage thresholds;
+  Stage 2 retains its original boundary. Reduced motion shows all four words
+  immediately. Desktop and mobile checks passed with zero overflow and a clean
+  console.
+
+## Applied Chamber — KN-PRIVACY-SCROLL-2026-07-30
 
 Proposal ID: `KN-HERO-SPOTLIGHT-RADIUS-2026-08-06`
 

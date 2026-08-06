@@ -9,7 +9,7 @@
     >
     <title>KINGNOTHIN | The Revolution Has No Throne</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="privacy-experience.css?v=20260731-2">
+    <link rel="stylesheet" href="privacy-experience.css?v=20260806-1">
   </head>
   <body>
     <main class="landing" aria-label="KINGNOTHIN landing page">
@@ -410,9 +410,35 @@
               </div>
 
               <div class="privacy-experience__phrase-field" aria-live="off">
-                <p class="privacy-experience__phrase is-active" data-privacy-phrase="0" data-step="01">Trending in your area</p>
+                <p
+                  class="privacy-experience__phrase privacy-experience__phrase--word-reveal is-active"
+                  data-privacy-phrase="0"
+                  data-privacy-label="Trending in your area"
+                  data-step="01"
+                >
+                  <span class="sr-only">Trending in your area</span>
+                  <span class="privacy-experience__word-sequence" aria-hidden="true">
+                    <span class="privacy-experience__word privacy-experience__word--trending" data-privacy-word>Trending</span>
+                    <span class="privacy-experience__word privacy-experience__word--in" data-privacy-word>in</span>
+                    <span class="privacy-experience__word privacy-experience__word--your" data-privacy-word>your</span>
+                    <span class="privacy-experience__word privacy-experience__word--area" data-privacy-word>area</span>
+                  </span>
+                </p>
                 <p class="privacy-experience__phrase" data-privacy-phrase="1" data-step="02">Popular with people like you</p>
-                <p class="privacy-experience__phrase" data-privacy-phrase="2" data-step="03">Based on your activity</p>
+                <p
+                  class="privacy-experience__phrase privacy-experience__phrase--image"
+                  data-privacy-phrase="2"
+                  data-privacy-label="Based on your activity"
+                  data-step="03"
+                >
+                  <span class="sr-only">Based on your activity</span>
+                  <img
+                    class="privacy-experience__phrase-art"
+                    src="assets/privacy-experience/based-on-your-activity-words-gold-outline.png"
+                    alt=""
+                    aria-hidden="true"
+                  >
+                </p>
                 <p class="privacy-experience__phrase" data-privacy-phrase="3" data-step="04">You may also like</p>
                 <p class="privacy-experience__phrase" data-privacy-phrase="4" data-step="05">Continue where you left off</p>
                 <p class="privacy-experience__phrase" data-privacy-phrase="5" data-step="06">Because you watched</p>
@@ -577,6 +603,6 @@
     </main>
 
     <script src="script.js"></script>
-    <script src="privacy-experience.js?v=20260731-2"></script>
+    <script src="privacy-experience.js?v=20260806-1"></script>
   </body>
 </html>
