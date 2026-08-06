@@ -792,3 +792,50 @@ if (privacySpace) {
     window.addEventListener("resize", requestPrivacyUpdate);
   }
 }
+
+const attentionSection = document.querySelector("[data-attention-section]");
+
+if (attentionSection) {
+  const attentionItems = attentionSection.querySelectorAll(".attention-reveal");
+  const attentionPause = attentionSection.querySelector("[data-attention-pause]");
+  const prefersReducedAttentionMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (prefersReducedAttentionMotion || !("IntersectionObserver" in window)) {
+    attentionItems.forEach((item) => item.classList.add("is-visible"));
+    attentionSection.classList.add("is-calm");
+  } else {
+    const attentionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            attentionObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "0px 0px -14% 0px",
+        threshold: 0.3,
+      }
+    );
+
+    attentionItems.forEach((item) => attentionObserver.observe(item));
+
+    if (attentionPause) {
+      const pauseObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            attentionSection.classList.toggle("is-calm", entry.isIntersecting);
+          });
+        },
+        {
+          root: null,
+          threshold: 0.42,
+        }
+      );
+
+      pauseObserver.observe(attentionPause);
+    }
+  }
+}
