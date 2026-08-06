@@ -149,8 +149,22 @@ a:focus-visible {
   background-image: url("assets/kingnothin-hero.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
-  filter: saturate(0.88) contrast(1.08) brightness(0.98);
+  background-size: cover;
+  filter: saturate(0.94) contrast(1.1) brightness(1.07);
+}
+
+.hero__image::after {
+  position: absolute;
+  right: -8vmax;
+  bottom: -17vmax;
+  width: min(42vmax, 510px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(212, 185, 106, 0.24) 0 4%, rgba(139, 26, 43, 0.46) 22%, rgba(139, 26, 43, 0.2) 46%, transparent 72%);
+  box-shadow: 0 0 140px rgba(139, 26, 43, 0.36);
+  content: "";
+  pointer-events: none;
 }
 
 .hero__veil {
@@ -160,9 +174,9 @@ a:focus-visible {
       circle at var(--spot-x) var(--spot-y),
       rgba(10, 10, 11, 0) 0,
       rgba(10, 10, 11, 0) var(--spot-radius),
-      rgba(10, 10, 11, 0.44) calc(var(--spot-radius) + 24px),
-      rgba(10, 10, 11, 0.9) calc(var(--spot-radius) + var(--spot-feather)),
-      var(--obsidian) calc(var(--spot-radius) + var(--spot-feather) + 130px)
+      rgba(10, 10, 11, 0.34) calc(var(--spot-radius) + 30px),
+      rgba(10, 10, 11, 0.78) calc(var(--spot-radius) + var(--spot-feather)),
+      var(--obsidian) calc(var(--spot-radius) + var(--spot-feather) + 170px)
     );
   transition: background 260ms ease;
 }
@@ -177,8 +191,8 @@ a:focus-visible {
   border: 1px solid rgba(201, 168, 76, 0.26);
   border-radius: 50%;
   box-shadow:
-    0 0 70px rgba(201, 168, 76, 0.16),
-    inset 0 0 70px rgba(212, 185, 106, 0.08);
+    0 0 110px rgba(201, 168, 76, 0.26),
+    inset 0 0 96px rgba(212, 185, 106, 0.14);
   opacity: 0;
   pointer-events: none;
   transform: translate(-50%, -50%);
@@ -1698,10 +1712,16 @@ p {
       radial-gradient(
         circle at 50% 47%,
         rgba(10, 10, 11, 0) 0,
-        rgba(10, 10, 11, 0) min(33vw, 190px),
-        rgba(10, 10, 11, 0.5) min(42vw, 250px),
-        var(--obsidian) min(76vw, 470px)
+        rgba(10, 10, 11, 0) min(41vw, 240px),
+        rgba(10, 10, 11, 0.38) min(52vw, 310px),
+        var(--obsidian) min(88vw, 560px)
       );
+  }
+
+  .hero__image::after {
+    right: -15vmax;
+    bottom: -15vmax;
+    width: 76vmax;
   }
 }
 

@@ -37,6 +37,119 @@ not authorize another.
 
 ## Active Chamber
 
+Proposal ID: `KN-HERO-SPOTLIGHT-RADIUS-2026-08-06`
+
+Title: Hero spotlight radius increase
+
+Status: `APPLIED`
+
+Purpose:
+
+Increase the existing, approved hero spotlight radius by a further ten percent.
+
+Files that may change:
+
+- `script.js`
+- `SITE_CHANGE_CLEARANCE.md`
+
+What must remain untouched:
+
+- All spotlight intensity, copy, layout, typography, assets, and other sections
+
+Final clearance:
+
+- Approved by: User
+- Approval date: 2026-08-06
+- Approved scope: Increase only the current spotlight radius by ten percent.
+
+Implementation:
+
+- Applied date: 2026-08-06
+- Verification: Reviewed in the in-app browser with the spotlight active;
+  confirmed the wider reveal remains centered and controlled, with no browser
+  console warnings or errors. `git diff --check` and the JavaScript syntax
+  check passed.
+
+---
+
+Proposal ID: `KN-HERO-CROP-AND-HORIZON-2026-08-06`
+
+Title: Revised hero title treatment
+
+Status: `APPLIED`
+
+Purpose:
+
+Remove the unused black space above and below the hero artwork, while adding a
+small, restrained crimson edge in the lower-right of the art.
+
+Files that may change:
+
+- `styles.css`
+- `SITE_CHANGE_CLEARANCE.md`
+
+What must remain untouched:
+
+- Hero copy, type, navigation, and interaction structure
+- All sections after the hero
+- Assets, metadata, forms, links, integrations, and unrelated work
+
+Final clearance:
+
+- Approved by: User
+- Approval date: 2026-08-06
+- Approved scope: Apply the reviewed cropped hero artwork and the small
+  lower-right crimson sun edge.
+
+Implementation:
+
+- Applied date: 2026-08-06
+- Verification: Reviewed in the in-app browser at desktop and 390 x 844;
+  confirmed the artwork fills the hero, the crimson edge remains restrained,
+  and no browser console warnings or errors were recorded. `git diff --check`
+  and the JavaScript syntax check passed.
+
+---
+
+Proposal ID: `KN-HERO-SPOTLIGHT-2026-08-06`
+
+Title: Hero spotlight lift
+
+Status: `APPLIED`
+
+Purpose:
+
+Make the existing hero spotlight slightly brighter and wider so the central
+KINGNOTHIN mark is more legible while the opening remains restrained.
+
+Files that may change:
+
+- `styles.css`
+- `script.js`
+- `SITE_CHANGE_CLEARANCE.md`
+
+What must remain untouched:
+
+- Hero copy, layout, fonts, and assets
+- All sections after the hero
+- Navigation, metadata, forms, links, integrations, and unrelated work
+
+Final clearance:
+
+- Approved by: User
+- Approval date: 2026-08-06
+- Approved scope: Increase only the existing hero spotlight's radius and
+  intensity, with no copy, layout, font, or other-section changes.
+
+Implementation:
+
+- Applied date: 2026-08-06
+- Verification: Reviewed in the in-app browser at desktop and 390 x 844;
+  confirmed the larger spotlight reveals the title art without changing copy
+  or layout. `git diff --check` and the JavaScript syntax check passed.
+
+---
+
 Proposal ID: `KN-PRIVACY-SCROLL-2026-07-30`
 
 Title: Privacy static-scroll behavioral association experience

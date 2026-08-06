@@ -11,7 +11,7 @@ if (spotlight) {
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
     const radius = Math.sqrt((rect.width * rect.height * 0.1) / Math.PI);
-    const constrainedRadius = Math.max(130, Math.min(radius, 330));
+    const constrainedRadius = Math.max(187, Math.min(radius * 1.298, 473));
 
     spotlight.classList.add("is-lit");
     spotlight.style.setProperty("--spot-x", `${x}px`);
