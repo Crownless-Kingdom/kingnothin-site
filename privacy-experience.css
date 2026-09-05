@@ -502,6 +502,13 @@
     drop-shadow(0 0 1px rgba(245, 240, 232, .24));
 }
 
+.privacy-experience__phrase-art--square {
+  width: auto;
+  max-width: min(72vw, 640px);
+  max-height: min(66vh, 640px);
+  object-fit: contain;
+}
+
 .privacy-experience__thumbnails {
   position: absolute;
   z-index: 3;
@@ -938,6 +945,12 @@
 
   .privacy-experience__phrase-art {
     width: 94vw;
+  }
+
+  .privacy-experience__phrase-art--square {
+    width: auto;
+    max-width: min(88vw, 560px);
+    max-height: 56vh;
   }
 
   .privacy-experience[data-stage="7"] .privacy-experience__phrase,

@@ -35,6 +35,81 @@ Silence, discussion, experimentation, or a request to preview an idea does not
 count as clearance. Approval must be explicit. Clearance for one proposal does
 not authorize another.
 
+## Active Chamber — KN-EXTRACTION-REPORT-AND-PHRASE-ART-2026-09-05
+
+Proposal ID: `KN-EXTRACTION-REPORT-AND-PHRASE-ART-2026-09-05`
+
+Title: Extraction Economy report integration and two behavioural phrase artworks
+
+Status: `APPLIED`
+
+Opened: 2026-09-05
+
+Purpose:
+
+Publish the approved Extraction Economy report journey and replace the visible
+Stage 2 and Stage 4 behavioural phrases with the two user-supplied artworks.
+
+Cleared scope:
+
+- Add the approved report gateway after the existing Extraction Economy opening.
+- Add the static report route at `reports/extraction-economy/`.
+- Use responsive WebP copies of the supplied `Popular with people like you`
+  artwork for Stage 2 while preserving that semantic phrase.
+- Use responsive WebP copies of the supplied `You may also like` artwork for
+  Stage 4 while preserving that semantic phrase.
+- Preserve the supplied artwork composition and appearance while producing
+  responsive 320px and 640px WebP copies for efficient delivery inside each
+  existing phrase stage.
+- Preserve the nine-stage order, timing, live announcements, audio controls,
+  reduced-motion path, Privacy copy, and all unrelated surfaces.
+
+Files cleared:
+
+- `index.html`
+- `styles.css`
+- `privacy-experience.css`
+- `assets/privacy-experience/popular-with-people-like-you-320.webp`
+- `assets/privacy-experience/popular-with-people-like-you-640.webp`
+- `assets/privacy-experience/you-may-also-like-320.webp`
+- `assets/privacy-experience/you-may-also-like-640.webp`
+- `reports/extraction-economy/index.html`
+- `reports/extraction-economy/report.css`
+- `reports/extraction-economy/report.js`
+- `SITE_CHANGE_CLEARANCE.md`
+
+Privacy and accessibility:
+
+Both artworks remain decorative and local. Responsive WebP encoding reduces
+their combined transfer from about 2.76 MB to about 49 KB at 320px or 133 KB at
+640px while preserving their appearance at the rendered sizes. Their phrases
+remain real screen-reader text and the live status continues to announce the
+current phrase and stage.
+No analytics, cookies, storage, forms, external scripts, remote fonts, or new
+data flows are introduced.
+
+Final clearance:
+
+- Approved by: User
+- Approval date: 2026-09-05
+- Approval evidence: The user supplied both artworks, requested their named
+  phrase replacements, and explicitly requested, `commit, push and deploy it all`.
+
+Implementation:
+
+- Applied date: 2026-09-05
+- Verification: Both supplied artworks were rendered as responsive 320px and
+  640px WebP assets. Combined transfer weight is 48,768 bytes at 320px and
+  133,334 bytes at 640px, compared with 2,757,418 bytes for the supplied PNG
+  masters. Browser checks at 320px, 375px, 768px, and 1280px confirmed correct
+  source selection, square aspect ratio, centered containment, preserved
+  semantic phrases and stage labels, zero horizontal overflow, no failed
+  requests, no unexpected console errors, and no external requests. The report
+  retained one `h1`, seven layers, three ordinary moments, 27 source entries,
+  and complete core content without JavaScript. JavaScript syntax, scoped static
+  security review, asset delivery, and `git diff --check` passed.
+- Publication: Commit, push, and deployment explicitly authorized.
+
 ## Applied Chamber — KN-PRIVACY-STAGE-3-GOLD-OUTLINE-2026-08-03
 
 Proposal ID: `KN-PRIVACY-STAGE-3-GOLD-OUTLINE-2026-08-03`

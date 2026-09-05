@@ -461,6 +461,137 @@ p {
   line-height: 1.24;
 }
 
+.extraction-report-portal {
+  position: relative;
+  display: grid;
+  width: min(100%, 1120px);
+  min-height: min(76svh, 820px);
+  align-content: center;
+  justify-items: center;
+  gap: 0;
+  margin: clamp(110px, 15vw, 190px) auto 0;
+  padding: clamp(72px, 10vw, 132px) clamp(22px, 7vw, 88px);
+  border-top: 1px solid rgba(201, 168, 76, .42);
+  border-bottom: 1px solid rgba(201, 168, 76, .42);
+  background:
+    radial-gradient(circle at 50% 38%, rgba(42, 107, 94, .12), transparent 46%),
+    linear-gradient(rgba(168, 168, 160, .025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168, 168, 160, .025) 1px, transparent 1px),
+    rgba(8, 8, 9, .72);
+  background-size: auto, 72px 72px, 72px 72px, auto;
+  text-align: center;
+}
+
+.extraction-report-portal::before,
+.extraction-report-portal::after {
+  position: absolute;
+  left: 50%;
+  width: 1px;
+  height: clamp(34px, 5vw, 62px);
+  background: var(--supernova);
+  content: "";
+}
+
+.extraction-report-portal::before {
+  top: 0;
+}
+
+.extraction-report-portal::after {
+  bottom: 0;
+}
+
+.extraction-report-portal__chain {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 14px;
+  margin: 0 0 clamp(42px, 6vw, 68px);
+  color: var(--silver);
+  font-family: var(--font-display-secondary);
+  font-size: clamp(11px, 1.25vw, 14px);
+  letter-spacing: .11em;
+  line-height: 1.5;
+}
+
+.extraction-report-portal__chain span:last-child {
+  color: var(--supernova-soft);
+}
+
+.extraction-report-portal__chain i {
+  color: var(--jade);
+  font-style: normal;
+}
+
+.extraction-report-portal h3 {
+  max-width: 940px;
+  margin: 0;
+  color: var(--ivory);
+  font-family: var(--font-display-primary);
+  font-size: clamp(34px, 5vw, 66px);
+  font-weight: 400;
+  letter-spacing: -.01em;
+  line-height: 1.03;
+  text-wrap: balance;
+}
+
+.extraction-report-portal__meta {
+  margin: clamp(34px, 5vw, 52px) 0 0;
+  color: var(--silver);
+  font-family: var(--font-support);
+  font-size: clamp(11px, 1.2vw, 13px);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.extraction-report-portal__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 34px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--supernova);
+  color: var(--ivory);
+  font-family: var(--font-display-secondary);
+  font-size: 14px;
+  letter-spacing: .12em;
+  text-decoration: none;
+  transition: color var(--time-focus) var(--ease-signal), gap var(--time-focus) var(--ease-signal);
+}
+
+.extraction-report-portal__link i {
+  color: var(--supernova);
+  font-style: normal;
+}
+
+.extraction-report-portal__link:hover,
+.extraction-report-portal__link:focus-visible {
+  gap: 24px;
+  color: var(--supernova-soft);
+}
+
+@media (max-width: 620px) {
+  .extraction-report-portal {
+    width: calc(100% - 4px);
+    min-height: 78svh;
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .extraction-report-portal__chain {
+    max-width: 280px;
+  }
+
+  .extraction-report-portal h3 {
+    font-size: clamp(31px, 10vw, 44px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .extraction-report-portal__link {
+    transition: none;
+  }
+}
+
 .extraction-pathway[hidden],
 .extraction-ledger[hidden] {
   display: none !important;
