@@ -2,6 +2,96 @@
 
 This file is the holding chamber between an idea and the live KINGNOTHIN site.
 
+## Active Chamber — KN-BEHAVIOUR-PHRASE-ART-2026-09-05
+
+Proposal ID: `KN-BEHAVIOUR-PHRASE-ART-2026-09-05`
+
+Title: Three responsive behaviour-phrase artworks
+
+Status: `APPLIED`
+
+Opened: 2026-09-05
+
+Purpose:
+
+Replace only the visible treatments for `Popular with people like you`, `You
+may also like`, and `Continue where you left off` with the three newly supplied
+artworks.
+
+Visitor consequence:
+
+Stages 2, 4, and 5 of the Behaviour Phrase sequence show the corresponding
+artwork in place of styled text. The exact phrases remain available as semantic
+text for assistive technology.
+
+Proposed mechanism:
+
+Create 320px, 480px, and 640px local WebP variants from each supplied PNG. Use
+responsive `srcset`, explicit intrinsic dimensions, lazy loading, and
+asynchronous decoding. Preserve the existing stage order, labels, timing,
+motion, audio behavior, and reduced-motion path. Clip the white corners of the
+oval `Continue where you left off` artwork at display time without altering its
+interior.
+
+Files that would change after clearance:
+
+- `index.html`
+- `privacy-experience.css`
+- Nine responsive WebP files under `assets/privacy-experience/`
+- `SITE_CHANGE_CLEARANCE.md`
+
+What must remain untouched:
+
+- Phrase wording and order
+- Stages 1, 3, and 6 through 9
+- Scroll timing, pressure progression, audio, controls, and reduced-motion
+  behavior
+- Extraction Economy report and gateway
+- All other homepage content, assets, metadata, links, forms, and integrations
+
+Privacy, accessibility, performance, and brand check:
+
+No external requests, trackers, scripts, or dependencies are added. The images
+are decorative while the complete phrases remain semantic HTML. Responsive
+WebP files, lazy loading, asynchronous decoding, and explicit dimensions limit
+transfer and layout work. Desktop, 390px, and 320px containment, browser errors,
+and actual transferred bytes must be verified before application.
+
+Preview or evidence:
+
+- Isolated review folder: `prototypes/behaviour-phrase-art-hold/`
+
+Risks and reversal plan:
+
+Dense artwork may become hard to read if rendered too small. Verify legibility
+against the live obsidian stage before clearance. Reversal restores the three
+current phrase treatments and removes only the nine new responsive assets.
+
+Final clearance:
+
+- Approved by: User
+- Approval date: 2026-09-05
+- Approved scope: Replace the corresponding stages for `Popular with people
+  like you`, `You may also like`, and `Continue where you left off` with the
+  three reviewed artworks, optimized as needed to protect site performance.
+- Approval evidence: "yes i approve them all lets commit push and deploy"
+
+Implementation:
+
+- Applied date: 2026-09-05
+- Verification: The three approved artworks replaced only stages 2, 4, and 5.
+  Each stage retained its exact semantic phrase, nine-stage position, live
+  announcement, existing motion, audio behavior, and reduced-motion reading.
+  Browser checks at 1280px, 390px, and 320px confirmed the correct responsive
+  640px, 480px, and 320px WebP selections, complete viewport containment, and
+  zero horizontal overflow. The three new artworks made zero requests during
+  initial homepage load and loaded only as the Behaviour Phrase section was
+  approached. All nine local assets returned HTTP 200. JavaScript syntax and
+  `git diff --check` passed. The full-root static audit reported zero high, low,
+  or informational findings and seven existing medium HTML-injection review
+  signals in unchanged `script.js`.
+- Commit, push, and public deployment: Authorized; performed after this record.
+
 Potential changes stop here before they reach production. A proposal may be
 described, researched, mocked up, or built as an isolated prototype, but it must
 not alter or connect to the live site until the user gives explicit final
