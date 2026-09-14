@@ -170,6 +170,18 @@
   content: attr(data-step);
 }
 
+.privacy-experience__phrase--accent {
+  color: var(--crimson);
+  font-family: "Exo";
+  font-weight: 200;
+  letter-spacing: .02em;
+  text-transform: none;
+}
+
+.privacy-experience__phrase--accent::before {
+  color: var(--crimson);
+}
+
 .privacy-experience__word-sequence {
   display: inline-flex;
   max-width: 100%;
@@ -500,21 +512,6 @@
   filter:
     drop-shadow(0 2px 18px rgba(10, 10, 11, .9))
     drop-shadow(0 0 1px rgba(245, 240, 232, .24));
-}
-
-.privacy-experience__phrase-art--square {
-  width: auto;
-  max-width: min(72vw, 640px);
-  max-height: min(66vh, 640px);
-  object-fit: contain;
-}
-
-.privacy-experience__phrase-art--oval {
-  width: auto;
-  max-width: min(82vw, 760px);
-  max-height: min(60vh, 480px);
-  object-fit: contain;
-  clip-path: ellipse(50% 50% at 50% 50%);
 }
 
 .privacy-experience__thumbnails {
@@ -955,18 +952,6 @@
     width: 94vw;
   }
 
-  .privacy-experience__phrase-art--square {
-    width: auto;
-    max-width: min(88vw, 560px);
-    max-height: 56vh;
-  }
-
-  .privacy-experience__phrase-art--oval {
-    width: auto;
-    max-width: min(90vw, 640px);
-    max-height: 48vh;
-  }
-
   .privacy-experience[data-stage="7"] .privacy-experience__phrase,
   .privacy-experience[data-stage="8"] .privacy-experience__phrase,
   .privacy-experience[data-stage="9"] .privacy-experience__phrase {
@@ -1032,4 +1017,30 @@
     animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
   }
+}
+
+.privacy-experience__phrase[data-privacy-phrase='0'] .privacy-experience__phrase-art {
+  width: min(76vw, 60svh, 620px);
+  height: auto;
+}
+
+.privacy-experience__phrase .privacy-experience__supplied-art {
+  width: auto;
+  max-width: min(84vw, 900px);
+  max-height: 60svh;
+  object-fit: contain;
+}
+.privacy-experience__phrase .privacy-experience__supplied-art {
+  filter: none;
+}
+.privacy-experience__phrase[data-privacy-phrase="4"] .privacy-experience__supplied-art {
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at center, #000 94%, transparent 100%);
+  mask-image: radial-gradient(ellipse 50% 50% at center, #000 94%, transparent 100%);
+}
+.privacy-experience__phrase[data-privacy-phrase="0"] .privacy-experience__phrase-art {
+  filter: none;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent), linear-gradient(to bottom, transparent, #000 5%, #000 95%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent), linear-gradient(to bottom, transparent, #000 5%, #000 95%, transparent);
+  mask-composite: intersect;
 }

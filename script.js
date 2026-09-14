@@ -11,7 +11,7 @@ if (spotlight) {
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
     const radius = Math.sqrt((rect.width * rect.height * 0.1) / Math.PI);
-    const constrainedRadius = Math.max(187, Math.min(radius * 1.298, 473));
+    const constrainedRadius = Math.max(130, Math.min(radius, 330));
 
     spotlight.classList.add("is-lit");
     spotlight.style.setProperty("--spot-x", `${x}px`);
@@ -111,7 +111,7 @@ if (signalPlate) {
     status.textContent = unlockedStatus;
 
     const totalFrames = finalText.length;
-    const interval = 56;
+    const interval = 28;
     let frame = 0;
 
     decryptTimer = window.setInterval(() => {
@@ -790,52 +790,5 @@ if (privacySpace) {
 
     window.addEventListener("scroll", requestPrivacyUpdate, { passive: true });
     window.addEventListener("resize", requestPrivacyUpdate);
-  }
-}
-
-const attentionSection = document.querySelector("[data-attention-section]");
-
-if (attentionSection) {
-  const attentionItems = attentionSection.querySelectorAll(".attention-reveal");
-  const attentionPause = attentionSection.querySelector("[data-attention-pause]");
-  const prefersReducedAttentionMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  if (prefersReducedAttentionMotion || !("IntersectionObserver" in window)) {
-    attentionItems.forEach((item) => item.classList.add("is-visible"));
-    attentionSection.classList.add("is-calm");
-  } else {
-    const attentionObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            attentionObserver.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: "0px 0px -14% 0px",
-        threshold: 0.3,
-      }
-    );
-
-    attentionItems.forEach((item) => attentionObserver.observe(item));
-
-    if (attentionPause) {
-      const pauseObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            attentionSection.classList.toggle("is-calm", entry.isIntersecting);
-          });
-        },
-        {
-          root: null,
-          threshold: 0.42,
-        }
-      );
-
-      pauseObserver.observe(attentionPause);
-    }
   }
 }

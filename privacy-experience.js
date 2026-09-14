@@ -35,7 +35,7 @@
 
   if (
     phrases.length !== 9
-    || stageOneWords.length !== 4
+    || (stageOneWords.length !== 4 && !stageOnePhrase.querySelector("img"))
     || requiredElements.some((element) => !element)
   ) {
     return;
@@ -54,23 +54,30 @@
     [0, 0, 1]
   ];
 
+  const cueStartPhraseIndex = 1;
+  const cueEndPhraseIndex = 8;
+  const cueDurationSeconds = 3;
+  const cueFadeInSeconds = 1.05;
+  const trimTailSeconds = 5;
+
   const audioLayers = [
     {
       audio: primaryAudio,
       key: "texture",
       label: "extraction cue",
       passes: 2,
-      startProgress: .58,
-      resetProgress: .52,
-      firstFadeInSeconds: 1.1,
-      loopFadeSeconds: .65,
-      finalFadeSeconds: 2.1,
-      maxVolume: .7,
+      startProgress: .16,
+      resetProgress: .12,
+      firstFadeInSeconds: cueFadeInSeconds,
+      loopFadeSeconds: .55,
+      finalFadeSeconds: .8,
+      maxVolume: .65,
       pass: 0,
       triggered: false,
       blockedUntilReset: false,
       completed: false,
-      frame: 0
+      frame: 0,
+      cueTimer: 0
     }
   ];
 
@@ -172,7 +179,15 @@
     }
   }
 
+  function clearCueTimer(layer) {
+    if (layer.cueTimer) {
+      window.clearTimeout(layer.cueTimer);
+      layer.cueTimer = 0;
+    }
+  }
+
   function stopEnvelope(layer) {
+    clearCueTimer(layer);
     if (!layer.frame) return;
     window.cancelAnimationFrame(layer.frame);
     layer.frame = 0;
@@ -246,6 +261,23 @@
     try {
       await layer.audio.play();
       runEnvelope(layer);
+      clearCueTimer(layer);
+
+      const playbackWindowSeconds = Number.isFinite(layer.audio.duration)
+        ? Math.max(0.1, layer.audio.duration - trimTailSeconds)
+        : cueDurationSeconds;
+
+      layer.cueTimer = window.setTimeout(() => {
+        if (!layer.audio.paused && layer.triggered && !layer.completed) {
+          layer.completed = true;
+          layer.audio.pause();
+          layer.audio.volume = 0;
+          layer.audio.dataset.envelope = "0.000";
+          layer.audio.dataset.mixLevel = "0.000";
+          setPlayingStatus();
+          updateAudioButtons();
+        }
+      }, playbackWindowSeconds * 1000);
       setPlayingStatus();
     } catch {
       setAudioStatus("End mix ready - press Play");
@@ -320,6 +352,7 @@
       : stageOneWords.length;
     const pressure = clamp((index - 1) / 7);
     const release = clamp((progress - .86) / .11);
+    const cueWindowActive = index >= cueStartPhraseIndex && index < cueEndPhraseIndex;
     const [x, y, scale] = offsets[index];
 
     experience.style.setProperty("--privacy-progress", progress.toFixed(4));
@@ -347,9 +380,12 @@
         && consentGranted
         && !layer.blockedUntilReset
         && progress >= layer.startProgress
+        && cueWindowActive
         && !layer.triggered
       ) {
         triggerLayer(layer);
+      } else if (layer.triggered && !cueWindowActive) {
+        resetLayer(layer);
       }
     });
 

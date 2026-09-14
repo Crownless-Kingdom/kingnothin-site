@@ -633,3 +633,144 @@ Files: index.html, mission.css, SITE_CHANGE_CLEARANCE.md.
 Rollback: Remove the mission section and its stylesheet reference/file.
 
 Verification: approved mission copy preserved; surrounding homepage markup unchanged; desktop visual inspection; 390px mobile mission layout has no overflow; browser console has no errors; git diff --check passed.
+
+## KN-HOMEPAGE-FOUR-SECTIONS-2026-09-14
+
+Status: CLEARED
+
+Scope: Retain spotlight title, import existing mission section and mission.css from the mission publishing folder, retain Extraction preview/report link, retain Privacy ending at PRIVACY IS THE FOUNDATION. Remove all other homepage sections, hidden Extraction modules, and footer. Preserve standalone report and assets. Files: index.html, mission.css, this record.
+
+History: HOLD on proposal; CLEARED by user's explicit 'ok lets do it' after confirming the four-section order. Local implementation only.
+
+
+Implementation: APPLIED locally on 2026-09-14. Verified four main sections in the approved order, final foundation line, unchanged mission source, HTTP 200 homepage/mission CSS/report, no browser console errors, and no horizontal overflow at 320/375/768/1440px. git diff --check passed. No publish performed.
+
+
+## KN-REPORT-HEADING-2026-09-14
+Status: CLEARED
+Scope: Replace only the homepage extraction-report-title heading with: You see a screen, the System sees a predictable commodity
+History: HOLD at annotation; explicitly CLEARED by user instruction to execute annotation.
+
+Status: APPLIED locally. Exact heading verified over HTTP 200; git diff --check passed.
+
+
+## KN-MISSION-ANNOTATIONS-2026-09-14
+Status: CLEARED
+History: HOLD at annotation; explicitly CLEARED by user instruction to execute all three annotations.
+Scope: index.html mission text only. Remove opening But (capitalize Progress), replace decision with agency, and replace purpose paragraph verbatim with user supplied wording.
+
+Status: APPLIED locally. Both updated paragraphs verified over HTTP 200 and in refreshed browser DOM; git diff --check passed.
+
+
+## KN-MISSION-AGENCY-ARTICLE-2026-09-14
+Status: CLEARED
+History: HOLD at annotation; CLEARED by explicit execute annotation request.
+Scope: Remove the article before human agency in the homepage mission statement.
+
+Status: APPLIED locally. Exact replacement verified over HTTP 200; diff whitespace check passed.
+
+
+## KN-MISSION-OPENING-CORRECTIONS-2026-09-14
+Status: CLEARED
+History: HOLD at annotations; CLEARED by explicit execute annotation request.
+Scope: index.html opening mission paragraph only: of is system becomes of this system; our ability becomes our ability to choose deliberately.
+
+Status: APPLIED locally. Both replacements verified over HTTP 200; diff whitespace check passed.
+
+
+## KN-SCIENCE-GOTHIC-2026-09-14
+Status: CLEARED
+History: HOLD at annotation; user explicitly approved Science Gothic, brand-book/fonts amendment, and execution.
+Scope: mission.css closing statement; local Science Gothic font/license; project master brand book and fonts addendum. Preserve copy and layout.
+
+Status: APPLIED locally. Browser confirms Science Gothic loaded at the mission closing; no page horizontal overflow. Font HTTP 200 and scoped diff checks passed. Project master book and fonts addendum contain the approved fifth-font amendment.
+
+
+## KN-MISSION-PURPOSE-FONT-2026-09-14
+Status: CLEARED
+History: HOLD at annotations; CLEARED by explicit complete annotations request.
+Scope: Apply existing locally hosted Science Gothic at weight 400 to both mission purpose lines, preserving wording and other styling.
+
+Status: APPLIED locally. Refreshed browser confirms both purpose lines use loaded Science Gothic; stylesheet HTTP 200 and whitespace check passed.
+
+
+## KN-MISSION-OPENING-TYPE-2026-09-14
+Status: CLEARED
+History: HOLD at annotations; CLEARED by explicit complete annotations request.
+Scope: mission.css opening-human and opening-algorithm use Science Gothic; scale responsive font sizes to 70 percent and 80 percent respectively.
+
+Status: APPLIED locally. Browser confirms Science Gothic on both lines with desktop sizes 33.6px and 25.6px (previously 48px and 32px). Responsive clamp values scaled by requested percentages; diff whitespace check passed.
+
+
+## KN-MISSION-DISPLAY-ANNOTATIONS-2026-09-14
+Status: CLEARED
+History: HOLD at annotations; explicitly CLEARED by user request to complete annotations.
+Scope: mission.css lead uses Science Gothic, uppercase and 110 percent of existing responsive font sizes; statement uses Science Gothic, uppercase and Supernova Gold; closing becomes uppercase.
+
+Status: APPLIED locally. Refreshed browser confirms uppercase for all three targets, Science Gothic for lead and statement, lead desktop size 37.4px (previously 34px), and statement colour rgb(201,168,76), matching Supernova Gold. Diff whitespace check passed.
+
+
+## KN-MISSION-OPENING-SIMPLIFY-2026-09-14
+Status: CLEARED
+History: HOLD at annotations; CLEARED by explicit complete annotations request.
+Scope: index.html and mission.css. Add one colon and underline to THE MISSION; remove opening-human and opening-algorithm spans. Preserve KINGNOTHIN and body copy.
+
+Status: APPLIED locally. Refreshed browser confirms THE MISSION: with underline, KINGNOTHIN retained, and both requested spans removed. Scoped diff whitespace check passed.
+
+
+## KN-MISSION-CLOSING-CRIMSON-2026-09-14
+Status: CLEARED
+History: HOLD at annotation; CLEARED by explicit complete annotations request.
+Scope: mission.css closing three lines use Deep Crimson #8B1A2B.
+
+Status: APPLIED locally. Browser confirms closing text colour rgb(139,26,43), matching #8B1A2B; scoped whitespace check passed.
+
+
+## KN-MISSION-PURPOSE-ORDER-2026-09-14
+Status: CLEARED
+History: HOLD at annotations; CLEARED by explicit complete annotations request.
+Scope: index.html mission second section: move TO CREATE UNDERSTANDING. after the invisible-visible paragraph; add TO CREATE AUTONOMY after the practical-tools paragraph using existing purpose gold styling.
+
+Status: APPLIED locally. Browser verifies requested paragraph/statement order and TO CREATE AUTONOMY in Science Gothic with Supernova Gold rgb(201,168,76). Scoped whitespace check passed.
+
+
+## KN-EXTRACTION-FONT-PRIVACY-ART-2026-09-14
+Status: CLEARED
+History: HOLD at annotations; explicitly CLEARED by complete annotation request.
+Scope: styles.css extraction triad Science Gothic; index.html selected stage 09 replaced by supplied Trending in your area artwork with matching accessible label; locally compressed WebP asset.
+
+Scope detail: privacy-experience.css constrains replacement artwork to the stage viewport without cropping.
+
+Status: APPLIED locally. Verified all triad labels use Science Gothic, replacement WebP loads at HTTP 200 and 768px intrinsic width, nine stages retained. Image compressed from 1144344 to 96712 bytes. Stylesheet cache versions refreshed.
+
+
+## KN-TRENDING-STAGE-CORRECTION-2026-09-14
+Status: CLEARED
+User correction: artwork belongs to stage 01 Trending in your area; restore stage 09 Predicted for you. Scope includes index.html, privacy-experience.css and JS first-stage validation.
+
+Status: APPLIED locally. Browser verifies artwork in stage 01, Predicted for you restored at stage 09, all nine stages retained and privacy controller enhanced successfully. Whitespace check passed.
+
+
+## KN-THREE-PRIVACY-IMAGES-2026-09-14
+Status: CLEARED
+History: HOLD on receipt; explicitly approved by user request to replace corresponding phrases.
+Scope: index.html stages 02,04,05 matching Popular with people like you, You may also like, Continue where you left off; compressed local WebP assets and privacy-experience.css viewport fitting.
+
+Status: APPLIED locally. Browser verifies all three matching images loaded, nine stages retained and enhanced controller active. WebP sizes: 337688, 200698, 165576 bytes. Scoped whitespace checks passed.
+
+
+## KN-PRIVACY-ART-BLENDING-2026-09-14
+Status: CLEARED
+User explicitly requests seamless background integration of the three supplied images. Scope: privacy-experience.css image blending and index.html stylesheet cache version. Preserve artwork files. Transparent skull/heart retain alpha; oval continuation image receives an elliptical feathered CSS mask to hide white corners. Remove image drop shadows.
+
+Status: APPLIED locally. Confirmed source alpha on skull/heart, removed supplied-image shadows, and visually verified stage 05 oval mask removes white corners and feathers into background. No additional image payload. Scoped whitespace checks passed.
+
+
+## KN-TRENDING-ART-V2-2026-09-14
+Status: CLEARED
+User explicitly requests replacement of first Trending in your area image. Scope: new compressed WebP, index.html first-stage reference, privacy-experience.css soft edge blending.
+
+Status: APPLIED locally. First-stage image replaced with newly supplied artwork, compressed to 186536 bytes. Refreshed browser confirms new asset loaded at 900px intrinsic width; whitespace check passed.
+
+
+Publish approval: user requested publish, commit and push all approved changes to the live site on 2026-09-14.
