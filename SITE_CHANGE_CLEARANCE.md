@@ -619,3 +619,15 @@ Implementation:
 
 If the requested scope changes after clearance, return the proposal to `HOLD`
 and seek clearance again.
+
+## Approved Mission — KN-MISSION-2026-09-14
+
+Status: `CLEARED`
+
+User approved the reviewed mission addition on 2026-09-14 and explicitly requested commit and push: "ok I approve this addition to the live site please commit and push it".
+
+Scope: Add the exact approved mission copy and visual treatment before FIRST DOOR on the homepage, with section-scoped CSS and existing brand fonts. Preserve all other homepage content and behavior.
+
+Files: index.html, mission.css, SITE_CHANGE_CLEARANCE.md.
+
+Rollback: Remove the mission section and its stylesheet reference/file.
