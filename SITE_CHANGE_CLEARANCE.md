@@ -774,3 +774,10 @@ Status: APPLIED locally. First-stage image replaced with newly supplied artwork,
 
 
 Publish approval: user requested publish, commit and push all approved changes to the live site on 2026-09-14.
+
+
+## KN-MISSION-EXTRACTION-BRIDGE-2026-09-23
+History: HOLD for review; CLEARED by user request to commit and ship the reviewed bridge.
+Status: CLEARED
+Scope: Exact supplied paragraph between mission and Extraction Economy, centered Dosis styling and stylesheet cache version. Files: index.html, mission.css, SITE_CHANGE_CLEARANCE.md.
+Status: APPLIED. Exact preview copy and styling transferred and placement verified; diff and whitespace checks passed. User approved commit and deployment on 2026-09-23.

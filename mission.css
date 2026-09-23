@@ -40,3 +40,22 @@
 #mission .closing {
   color: #8B1A2B;
 }
+
+.mission-bridge {
+  box-sizing: border-box;
+  width: 100%;
+  padding: clamp(48px, 7vw, 96px) 24px;
+  background: #0A0A0B;
+  color: #F5F0E8;
+  text-align: center;
+}
+.mission-bridge p {
+  max-width: 750px;
+  margin: 0 auto;
+  font-family: 'Dosis', sans-serif;
+  font-size: clamp(21px, 2vw, 23px);
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: normal;
+  text-transform: none;
+}
