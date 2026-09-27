@@ -3,7 +3,6 @@ document.documentElement.classList.add("js-enabled");
 const spotlight = document.querySelector("[data-spotlight]");
 const signalPlate = document.querySelector("[data-signal-plate]");
 const extractionSection = document.querySelector("[data-extraction-section]");
-const privacySpace = document.querySelector("[data-privacy-space]");
 
 if (spotlight) {
   const setSpotlight = (event) => {
@@ -684,111 +683,5 @@ if (extractionSection) {
     extractionObserver.observe(extractionSection);
   } else {
     showExtractionSection();
-  }
-}
-
-if (privacySpace) {
-  const scrollStage = privacySpace.querySelector("[data-privacy-scroll-stage]");
-  const pressurePhrases = privacySpace.querySelectorAll("[data-pressure-side]");
-  const revealItems = privacySpace.querySelectorAll(".privacy-reveal");
-  const prefersReducedPrivacyMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let stageActive = false;
-  let privacyFrame = null;
-
-  const clamp = (value, minimum = 0, maximum = 1) => {
-    return Math.min(Math.max(value, minimum), maximum);
-  };
-
-  const updatePrivacySpace = () => {
-    privacyFrame = null;
-
-    if (!stageActive || !scrollStage || prefersReducedPrivacyMotion) {
-      return;
-    }
-
-    const rect = scrollStage.getBoundingClientRect();
-    const travel = Math.max(rect.height - window.innerHeight, 1);
-    const progress = clamp(-rect.top / travel);
-    const crowd = clamp(progress / 0.24);
-    const opening = clamp((progress - 0.27) / 0.39);
-    const inwardScale = window.innerWidth <= 760 ? 0.025 : 0.09;
-    const inwardDistance = window.innerWidth * inwardScale * crowd;
-    const outwardDistance = window.innerWidth * 0.28 * opening;
-    const shift = inwardDistance - outwardDistance;
-    const pressureOpacity = 0.72 - opening * 0.64;
-
-    privacySpace.style.setProperty("--privacy-progress", progress.toFixed(3));
-    privacySpace.style.setProperty("--privacy-pressure-opacity", pressureOpacity.toFixed(3));
-    privacySpace.style.setProperty("--privacy-axis-strength", (0.18 + opening * 0.68).toFixed(3));
-
-    pressurePhrases.forEach((phrase, index) => {
-      const direction = phrase.dataset.pressureSide === "left" ? 1 : -1;
-      const stagger = 1 - (index % 5) * 0.035;
-      const translated = shift * direction * stagger;
-      phrase.style.transform = `translateX(${translated.toFixed(1)}px)`;
-      phrase.style.opacity = pressureOpacity.toFixed(3);
-    });
-
-    privacySpace.classList.toggle("is-paused", progress >= 0.14 && progress < 0.49);
-    privacySpace.classList.toggle("is-open", progress >= 0.47);
-  };
-
-  const requestPrivacyUpdate = () => {
-    if (privacyFrame === null) {
-      privacyFrame = window.requestAnimationFrame(updatePrivacySpace);
-    }
-  };
-
-  if (prefersReducedPrivacyMotion) {
-    privacySpace.classList.add("is-open");
-    revealItems.forEach((item) => item.classList.add("is-visible"));
-  } else {
-    if ("IntersectionObserver" in window && scrollStage) {
-      const stageObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            stageActive = entry.isIntersecting;
-            if (stageActive) {
-              requestPrivacyUpdate();
-            }
-          });
-        },
-        {
-          root: null,
-          rootMargin: "20% 0px",
-          threshold: 0,
-        }
-      );
-
-      stageObserver.observe(scrollStage);
-    } else {
-      stageActive = true;
-      privacySpace.classList.add("is-open");
-    }
-
-    if ("IntersectionObserver" in window) {
-      const revealObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting && entry.intersectionRatio >= 0.18) {
-              entry.target.classList.add("is-visible");
-              revealObserver.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          root: null,
-          rootMargin: "0px 0px -8%",
-          threshold: [0.18, 0.4],
-        }
-      );
-
-      revealItems.forEach((item) => revealObserver.observe(item));
-    } else {
-      revealItems.forEach((item) => item.classList.add("is-visible"));
-    }
-
-    window.addEventListener("scroll", requestPrivacyUpdate, { passive: true });
-    window.addEventListener("resize", requestPrivacyUpdate);
   }
 }
