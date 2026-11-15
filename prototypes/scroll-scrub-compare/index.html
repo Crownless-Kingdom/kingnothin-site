@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Scroll-scrub comparison · KINGNOTHIN prototype (isolated)</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="proto.css">
+<style>
+  .idx { max-width: 760px; margin: 0 auto; padding: 12vh 24px; text-align: center; }
+  .idx h1 { font-family: "Science Gothic", sans-serif; font-weight: var(--kn-wght); font-variation-settings: "wdth" var(--kn-wdth);
+    font-size: clamp(34px, 6vw, 64px); letter-spacing: .06em; margin: 0 0 12px; }
+  .idx p { color: var(--silver); line-height: 1.6; }
+  .idx .tag { font: 11px "Prototype", monospace; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+  .idx ul { list-style: none; padding: 0; margin: 40px 0; display: grid; gap: 14px; }
+  .idx a { display: block; padding: 18px; border: 1px solid #3a3a36; color: var(--ivory); text-decoration: none;
+    font: 13px "Prototype", monospace; letter-spacing: .12em; text-transform: uppercase;
+    transition: border-color 300ms var(--ease); }
+  .idx a:hover, .idx a:focus-visible { border-color: var(--gold); }
+  .idx small { display: block; margin-top: 6px; color: var(--silver); text-transform: none; letter-spacing: .02em; font-family: "Exo", sans-serif; }
+  .idx code { color: var(--ivory); }
+</style>
+</head>
+<body>
+<main class="idx">
+  <p class="tag">HOLD · isolated prototype · not linked from the live site</p>
+  <h1>Scroll-scrub comparison</h1>
+  <p>Same approved script, same placeholder filament sequence (144 frames), two delivery methods. The filament footage is a [PLACEHOLDER] test, not a design.</p>
+  <ul>
+    <li><a href="canvas.html">A · Canvas image sequence<small>144 WebP frames, keyframes-first preload, nearest loaded frame drawn per rAF. Add <code>?set=640</code> for the mobile set.</small></a></li>
+    <li><a href="video.html">B · Video seeking<small>All-intra H.264 MP4, throttled seeks. Try <code>?src=g5</code>, <code>?src=m640</code>, <code>?src=webm</code>, <code>?blob=1</code>.</small></a></li>
+  </ul>
+  <p>Both pages: <code>?gold=1</code> gold final line · <code>?debug=0</code> hide overlay · <code>?len=600</code> track length in vh (default 800) · <code>?w=180</code> type weight · <code>?wdth=62</code> type width. Keys: <code>D</code> debug, <code>G</code> gold.</p>
+</main>
+</body>
+</html>

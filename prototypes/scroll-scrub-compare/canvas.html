@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Canvas image sequence · KINGNOTHIN scroll-scrub prototype (isolated)</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="proto.css">
+</head>
+<body data-method="canvas">
+<nav class="controls" aria-label="Prototype controls">
+  <a href="index.html">Index</a>
+  <a href="video.html">Video method</a>
+  <button type="button" data-act="gold" aria-pressed="false">Gold final line</button>
+  <button type="button" data-act="debug" aria-pressed="true">Debug</button>
+</nav>
+<main>
+  <section class="track" aria-label="Opening sequence">
+    <div class="stage">
+      <canvas aria-hidden="true"></canvas>
+      <p class="placeholder-tag" aria-hidden="true">[PLACEHOLDER VISUAL] test filament sequence · not a design</p>
+      <p class="sr-only">Welcome to KINGNOTHIN and the Crownless Kingdom. Never before in human history have we allowed a system so much influence.</p>
+      <div class="beats" aria-hidden="true">
+        <div class="intro beat-wrap"><p class="beat" data-beat="welcome">WELCOME TO</p></div>
+        <div class="intro beat-wrap"><p class="beat beat--name" data-beat="name">KINGNOTHIN</p></div>
+        <div class="intro beat-pair">
+          <p class="beat beat--small" data-beat="andthe">and the</p>
+          <p class="beat" data-beat="crownless">Crownless Kingdom</p>
+        </div>
+        <div class="declaration">
+          <p class="line">Never before</p>
+          <p class="line">In human history</p>
+          <p class="line">Have we allowed</p>
+          <p class="line">A system</p>
+          <p class="line line--final">So much influence</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="after">End of sequence · scroll back up to test reverse</div>
+</main>
+<div class="debug" aria-live="off"></div>
+<script src="story.js"></script>
+<script src="canvas.js"></script>
+</body>
+</html>

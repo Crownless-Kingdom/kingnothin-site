@@ -788,3 +788,128 @@ User explicitly requested removal of the entire Privacy section, then publicatio
 Scope: remove Privacy markup, resource links, and dedicated CSS/JS from latest origin/main; preserve mission, bridge, report, and all unrelated content.
 
 Status: APPLIED. JavaScript syntax, diff whitespace, unique IDs, internal anchors, CSS balance, and exact preservation of mission/bridge/Extraction Economy passed. Browser unavailable; visual verification not claimed. Existing decoder edits remain in the older checkout and are excluded from publication.
+
+## Active Chamber — KN-HOMEPAGE-CINEMATIC-INTRO-2026-11-14
+
+Proposal ID: `KN-HOMEPAGE-CINEMATIC-INTRO-2026-11-14`
+
+Title: Homepage cinematic scroll intro (silver-filament / THE SYSTEM reveal)
+
+Status: `HOLD`
+
+Opened: 2026-11-14
+
+Purpose:
+
+Before any production work, compare two ways of driving a scroll-scrubbed
+cinematic opening: canvas image-sequence scrubbing and optimized video
+seeking. Compare them for responsiveness, loading, frame availability, memory,
+reverse scrolling, and consistency on desktop and on a real phone.
+
+Visitor consequence:
+
+None at this stage. The homepage is unchanged. If the proposal is later
+cleared, visitors would land on a pinned, full-screen filament sequence that
+advances like a slow forward camera move as they scroll, with the approved
+script fading in at dead-centre.
+
+Approved script (supplied and approved by the user on 2026-11-14; the copy is
+not placeholder):
+
+- Intro beats, in order, each replacing the last: `WELCOME TO` / `KINGNOTHIN`
+  / `and the` / `Crownless Kingdom`
+- Closing declaration, centered, revealed in five cumulative word-beats where
+  each line stays as the next appears: `Never before` / `In human history` /
+  `Have we allowed` / `A system` / `So much influence`
+- Typography: Science Gothic (`assets/fonts/science-gothic/ScienceGothic.ttf`),
+  light weight, tall/slender (condensed width axis), Ivory White `#F5F0E8`
+  on Obsidian Black `#0A0A0B`, dead-centre.
+- Motion: simple opacity fades only, eased `cubic-bezier(0.22, 0.61, 0.36, 1)`.
+  No bounce, scramble, dust, or materialize effects.
+- Colour: all ivory by default. An optional toggle sets the final beat
+  `So much influence` in Supernova Gold `#C9A84C`; this is not yet decided.
+- `THE SYSTEM` is removed as on-screen text. The filament visuals and the
+  forward camera advance remain.
+- The site scroll version uses 7–8 visual stages, not 12. The prototype uses 8:
+  1 `WELCOME TO`; 2 `KINGNOTHIN`; 3 `and the` → `Crownless Kingdom`;
+  4–8 the five cumulative declaration lines. Merging `and the` /
+  `Crownless Kingdom` into one stage is a prototype interpretation awaiting
+  the user's confirmation.
+
+Proposed mechanism (prototype only):
+
+The prototype is a sticky `100svh` stage inside a tall scroll track, with
+scroll progress mapped to a frame index or video time. It uses vanilla
+JavaScript only. GSAP, ScrollTrigger, and Lenis are not yet approved
+dependencies, so the prototype does not use them, and adopting any of them
+needs separate explicit approval. There are no third-party scripts or CDNs.
+
+- Method A, canvas: 144 WebP frames, preloaded keyframes-first, decoded with
+  `createImageBitmap`. Each `requestAnimationFrame` draws the nearest loaded
+  frame.
+- Method B, video: all-intra (or GOP 5) H.264 MP4 with faststart and no audio,
+  muted and `playsinline`. Seeks are throttled so a new seek never starts
+  while one is in flight, and `requestVideoFrameCallback` is used where
+  available.
+- `prefers-reduced-motion` shows the final readable state.
+- An on-screen debug overlay reports the comparison metrics.
+
+Files that change at this stage:
+
+- `prototypes/scroll-scrub-compare/` (new, isolated, not referenced by
+  production)
+- `SITE_CHANGE_CLEARANCE.md` (this record)
+
+What must remain untouched:
+
+- `index.html`, `styles.css`, `script.js`, `mission.css`
+- All live assets, including the brand fonts, which the prototype reads but
+  never modifies
+- Public navigation, metadata, forms, links, and integrations
+
+Privacy, accessibility, performance, and brand check:
+
+No external requests, trackers, scripts, or dependencies are added. The full
+script is present as screen-reader text, and the visual beats are
+decorative. Reduced motion skips scrubbing. Payload and decoded memory are
+the main risks:
+
+- 1280px WebP set: 6,879,062 bytes, about 531 MB decoded if every frame is
+  held.
+- 640px WebP set: 1,768,938 bytes, about 133 MB decoded.
+- All-intra MP4: 6,256,777 bytes. GOP-5 MP4: 4,372,103 bytes. 640px all-intra
+  MP4: 1,531,038 bytes.
+- Science Gothic alone is 2,726,388 bytes and would need subsetting before
+  production.
+
+Preview or evidence:
+
+- Isolated prototype: `prototypes/scroll-scrub-compare/` (see its `README.md`)
+- Visual: placeholder test filament sequence, labelled on screen as
+  `[PLACEHOLDER VISUAL]`, not a design.
+- Headless Chrome smoke test on the build machine (2026-11-14; not
+  real-device evidence):
+  - No console errors on either method.
+  - Forward and reverse scroll completed.
+  - Video seeks landed in about 13–15 ms on average, with a maximum of about
+    34 ms for GOP 5.
+  - All canvas frames loaded from localhost in about 0.3–0.5 s.
+- Real-phone testing is still required.
+
+Risks and reversal plan:
+
+- Canvas holds a large amount of decoded memory, and iOS may reload the tab
+  under memory pressure.
+- Video seeking depends on HTTP Range support and on decoder behaviour, which
+  can make reverse scrubbing stutter on phones.
+- Final footage does not exist yet. The comparison must be repeated with real
+  footage before choosing.
+- Reversal: delete `prototypes/scroll-scrub-compare/` and withdraw this
+  record. Production is unaffected.
+
+Final clearance:
+
+- Approved by: Pending
+- Approved scope: Pending. The user approved logging this HOLD and building the
+  isolated comparison prototype ("Yes, build the prototype"), and approved the
+  script above. Neither is clearance for production.
